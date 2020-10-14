@@ -20,6 +20,16 @@ public class Contacto {
 		this.d = d;
 	}
 
+	public Contacto(String nombre, String apellido1, String apellido2) {
+		
+		this.nombre = nombre;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.email = "";
+		this.edad = 0;
+		this.d = d;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -43,7 +53,16 @@ public class Contacto {
 	public void setApellido2(String apellido2) {
 		this.apellido2 = apellido2;
 	}
-
+	
+	public String getApellidos() {
+		return apellido1 + " " + apellido2;
+	}
+	
+	public void setApellidos(String apellido1, String apellido2) {
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+	}
+	
 	public String getEmail() {
 		return email;
 	}
@@ -69,11 +88,27 @@ public class Contacto {
 
 	@Override
 	public String toString() {
-		return "Contacto [nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", email="
-				+ email + ", edad=" + edad + ", d=" + d + "]";
+		return "\nContacto \n[Nombre=" + nombre + "\n apellido1=" + apellido1 + "\n apellido2=" + apellido2 + "\n email="
+				+ email + "\n edad=" + edad + "\n d=" + d + "]\n";
 	}
 	
-	
+	public int compareTo(Contacto contactoAComparar) {
+		
+		System.out.println("Comparando " + this.getEmail());
+		System.out.println("con " + contactoAComparar.getEmail());
+		
+		if((this.getNombre().equals(contactoAComparar.getNombre()) && this.getApellidos().equals(contactoAComparar.getApellidos())) || this.getEmail().equals(contactoAComparar.getEmail()))
+		{
+			
+			return 0;
+		}
+		else
+		{
+			return 1;
+		}
+		
+		
+	}
 	
 
 	
