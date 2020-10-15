@@ -14,11 +14,7 @@ public class main {
 		GestorContactos gestorContactos = GestorContactos.getInstance();
 		gestorContactos.mostrarContactos();
 		gestorContactos.darAltaContacto();
-		gestorContactos.darAltaContacto();
 		gestorContactos.mostrarContactos();
-		//gestorContactos.buscarContactoPorNombre();
-		//gestorContactos.buscarContactoPorEdad();
-		gestorContactos.buscarContactoPorEmail();
 		
 	}
 

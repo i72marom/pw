@@ -1,5 +1,6 @@
 package practica1;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Contacto {
@@ -7,10 +8,11 @@ public class Contacto {
 	private String nombre, apellido1, apellido2, email;
 	private int edad;
 	private Date d;
+	private ArrayList<String> tags_;
 	
 	
 	
-	public Contacto(String nombre, String apellido1, String apellido2, int edad, String email, Date d) {
+	public Contacto(String nombre, String apellido1, String apellido2, int edad, String email, Date d, ArrayList<String> tags) {
 		
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
@@ -18,7 +20,11 @@ public class Contacto {
 		this.email = email;
 		this.edad = edad;
 		this.d = d;
+		this.tags_ = tags;
+		
 	}
+	
+	
 
 	public Contacto(String nombre, String apellido1, String apellido2) {
 		
@@ -28,6 +34,7 @@ public class Contacto {
 		this.email = "";
 		this.edad = 0;
 		this.d = d;
+		tags_ = null;
 	}
 	
 	public String getNombre() {
@@ -85,11 +92,19 @@ public class Contacto {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
+	
+	public ArrayList<String> getTags() {
+		return tags_;
+	}
+
+	public void setTags(ArrayList<String> tags) {
+		this.tags_ = tags;
+	}
 
 	@Override
 	public String toString() {
-		return "\nContacto \n[Nombre=" + nombre + "\n apellido1=" + apellido1 + "\n apellido2=" + apellido2 + "\n email="
-				+ email + "\n edad=" + edad + "\n d=" + d + "]\n";
+		return "Contacto [Nombre=" + nombre + " | apellido1=" + apellido1 + " | apellido2=" + apellido2 + " | email="
+				+ email + " | edad=" + edad + " | d=" + d + " | tags= " + tags_.toString() + "]\n";
 	}
 	
 	public int compareTo(Contacto contactoAComparar) {
