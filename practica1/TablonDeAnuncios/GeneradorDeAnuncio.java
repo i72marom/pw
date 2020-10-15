@@ -2,14 +2,27 @@ import java.util.ArrayList;
 
 public abstract class GeneradorDeAnuncio {
 	/** 
-	 * Create a menu for a weekday with several dishes
-	 * @return A list of the dishes included in the menu
-	 *  */
-	public abstract ArrayList<DailyMeal> createWeekMenu();
+	 * Crea un anuncio general.
+	 * @return Anuncio.
+	*/
+	public abstract Anuncio creaAnuncioGeneral();
+
+	/** 
+	 * Crea un anuncio tematico.
+	 * @return Anuncio.
+	*/
+	public abstract Anuncio creaAnuncioTematico();
+
+	/** 
+	 * Crea un anuncio que podran ver varios usuarios.
+	 * @return Anuncio.
+	*/
+	public abstract Anuncio creaAnuncioIndividualizado();
+
+	/** 
+	 * Crea un anuncio de duración limitada.
+	 * @return Anuncio.
+	*/
+	public abstract Anuncio creaAnuncioFlash();
 	
-	/**
-	 * Create a menu as a season meal
-	 * @return A season meal for the menu
-	 * */
-	public abstract SeasonMeal createSeasonMenu();
 }
