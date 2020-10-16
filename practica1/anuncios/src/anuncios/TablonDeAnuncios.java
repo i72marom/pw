@@ -31,6 +31,7 @@ public class TablonDeAnuncios {
 		tablon_.set(nuevo_anuncio.getId(), nuevo_anuncio);
 	}
 	
+<<<<<<< HEAD
 	
 	public void crearAnuncio()
 	{
@@ -85,7 +86,13 @@ public class TablonDeAnuncios {
 	
 	public void guardarAnuncio() {}
 
+=======
+>>>>>>> rama_mmr
 	public void publicarAnuncio(Anuncio nuevo_anuncio) {
+		tablon_.get(id).setEstado(Estado.publicado);
+	}
+
+	public void guardarAnuncio(Anuncio nuevo_anuncio) {
 		tablon_.add(nuevo_anuncio);
 	}
 	
@@ -103,7 +110,9 @@ public class TablonDeAnuncios {
 		return list;
 	}
 	
-	public void buscarPorTema() {}
+	public void buscarPorTema(ArrayList<String> temas_usuairo) {
+		
+	}
 	
 	public ArrayList<Anuncio> buscarPorPropietario(Contacto propietario) {
 		ArrayList<Anuncio> list = new ArrayList();

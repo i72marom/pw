@@ -1,18 +1,26 @@
 package anuncios;
 public class Generador extends GeneradorDeAnuncios {
 	public Anuncio creaAnuncioGeneral() {
-		return new AnuncioGeneral();
+		AnuncioGeneral nuevo = new AnuncioGeneral();
+		nuevo.setTipo(Tipo.general);
+		return nuevo;
 	}
 
 	public Anuncio creaAnuncioTematico() {
-		return new AnuncioTematico();
+		AnuncioTematico nuevo = new AnuncioTematico();
+		nuevo.setTipo(Tipo.tematico);
+		return nuevo;
 	}
 
 	public Anuncio creaAnuncioIndividualizado() {
-		return new AnuncioIndividualizado();
+		AnuncioIndividualizado nuevo = new AnuncioIndividualizado();
+		nuevo.setTipo(Tipo.individualizado);
+		return nuevo;
 	}
 
 	public Anuncio creaAnuncioFlash() {
-		return new AnuncioFlash();
+		AnuncioFlash nuevo = new AnuncioFlash();
+		nuevo.setTipo(Tipo.flash);
+		return nuevo;
 	}
 }

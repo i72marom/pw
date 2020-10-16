@@ -74,8 +74,12 @@ public class main {
 		System.out.println("3- Modificar anuncio");
 		System.out.println("4- Archivar anuncio");
 		System.out.println("5- Modificar mis datos");
+<<<<<<< HEAD
 		System.out.println("6- Cerrar sesión");
 		System.out.println("7- Salir de la aplicación");
+=======
+		System.out.println("6- Cerrar sesion");
+>>>>>>> rama_mmr
 		
 		System.out.print("Elige una opcion : ");
 		
