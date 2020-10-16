@@ -72,7 +72,7 @@ public class main {
 		System.out.println("3- Modificar anuncio");
 		System.out.println("4- Archivar anuncio");
 		System.out.println("5- Modificar mis datos");
-		System.out.println("6- Cerrar sesión");
+		System.out.println("6- Cerrar sesion");
 		
 		System.out.print("Elige una opcion : ");
 		
