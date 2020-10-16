@@ -1,3 +1,4 @@
+package anuncios;
 import java.util.Date;
 import java.util.ArrayList;
 
@@ -7,8 +8,12 @@ public class TablonDeAnuncios {
 	public TablonDeAnuncios() {}
 
 	// observadores y modificadores
-	public void getTablon() { return tablon_; }
-	public void setTablon(ArrayList<Anuncio> tablon) { this.tablon_ = tablon; }
+	public ArrayList<Anuncio> getTablon() { 
+		return tablon_; 
+	}
+	public void setTablon(ArrayList<Anuncio> tablon) { 
+		this.tablon_ = tablon; 
+	}
 
 	// otras funciones
 	public void editarAnuncio() {}
@@ -18,7 +23,7 @@ public class TablonDeAnuncios {
 	public void publicarAnuncio() {}
 	
 	public void archivarAnuncio(int id) {
-		tablon_.get(id).setEstado(archivado);
+		tablon_.get(id).setEstado(Estado.archivado);
 	}
 	
 	public void buscarPorFecha() {}

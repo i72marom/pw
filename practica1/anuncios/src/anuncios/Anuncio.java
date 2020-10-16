@@ -1,10 +1,11 @@
+package anuncios;
 import java.util.Date;
 import java.util.ArrayList;
 
 public abstract class Anuncio {
 	private int id_;
 	private String titulo_, propietario_, cuerpo_; 
-	private Date fecha_publicacion;
+	private Date fecha_;
 	private Estado estado_;
 
 	// Constructores
@@ -26,5 +27,5 @@ public abstract class Anuncio {
 	public void set(String propietario) { this.propietario_ = propietario; }
 	public void setCuerpo(String cuerpo) { this.cuerpo_ = cuerpo; }
 	public void setFecha(Date fecha) { this.fecha_ = fecha; }
-	public setEstado(Estado estado) { estado_ = estado; }
+	public void setEstado(Estado estado) { estado_ = estado; }
 }

@@ -1,3 +1,6 @@
+package anuncios;
+import java.util.Date;
+
 public class AnuncioFlash extends Anuncio {
 	private Date fecha_inicio_;
 	private Date fecha_fin_;

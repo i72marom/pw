@@ -1,6 +1,7 @@
+package anuncios;
 public enum Estado {
 	editado,
-	en-espera,
+	en_espera,
 	publicado,
 	archivado
 }

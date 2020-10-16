@@ -1,3 +1,6 @@
+package anuncios;
+import java.util.ArrayList;
+
 public class AnuncioIndividualizado extends Anuncio {
 	private ArrayList<Contacto> destinatarios_;
 
@@ -7,8 +10,13 @@ public class AnuncioIndividualizado extends Anuncio {
 	}
 
 	// gets y sets
-	public AraryList<Contacto> getDestinatarios() { return destinatarios_; }
-	public void setDestinatarios(AraryList<Contacto> destinatarios) { this.destinatarios_ = destinatarios; }
+	public ArrayList<Contacto> getDestinatarios() { 
+		return destinatarios_; 
+		}
+	
+	public void setDestinatarios(ArrayList<Contacto> destinatarios) { 
+		this.destinatarios_ = destinatarios; 
+		}
 
 	// otras funciones????
 	// public addDestinatario(Contacto destinatario) {}

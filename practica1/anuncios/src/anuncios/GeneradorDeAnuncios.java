@@ -1,3 +1,4 @@
+package anuncios;
 public abstract class GeneradorDeAnuncios {
 	/** 
 	 * Crea un anuncio general.
