@@ -7,6 +7,8 @@ public class main {
 	static Scanner leerCadenas = new Scanner(System.in);
 	static Scanner leerInts = new Scanner(System.in);
 	static GestorContactos gestorContactos = GestorContactos.getInstance();
+	static TablonDeAnuncios tablon;
+	
 	
 	public static void main(String[] args) {
 		
@@ -73,6 +75,7 @@ public class main {
 		System.out.println("4- Archivar anuncio");
 		System.out.println("5- Modificar mis datos");
 		System.out.println("6- Cerrar sesión");
+		System.out.println("7- Salir de la aplicación");
 		
 		System.out.print("Elige una opcion : ");
 		
@@ -84,10 +87,17 @@ public class main {
 		}
 		else if(opcion == 2)
 		{
-			
+			tablon.crearAnuncio();
 		}
 		else if(opcion == 3)
 		{
+			System.out.println("MODIFICAR ANUNCIO\n");
+			System.out.println("Tus anuncios: ");
+			tablon.buscarPorPropietario(gestorContactos.getUserLogeado());
+			
+			System.out.println("Selecciona el id de un anuncio para modificarlo : ");
+			
+			
 			
 		}
 		else if(opcion == 4)
@@ -105,6 +115,12 @@ public class main {
 		{
 			gestorContactos.cerrarSesion();
 			menu();
+		}
+		else if(opcion == 7)
+		{
+			gestorContactos.cerrarSesion();
+			gestorContactos.guardarContactos();
+			
 		}
 	}
 
