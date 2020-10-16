@@ -16,21 +16,42 @@ public class TablonDeAnuncios {
 	}
 
 	// otras funciones
-	public void editarAnuncio() {}
+	public void editarAnuncio(Anuncio nuevo_anuncio, Anuncio viejo_anuncio) {
+		nuevo_anuncio.setId(viejo_anuncio.getId());
+		tablon_.set(nuevo_anuncio.getId(), nuevo_anuncio);
+	}
 	
 	public void guardarAnuncio() {}
-	
-	public void publicarAnuncio() {}
+
+	public void publicarAnuncio(Anuncio nuevo_anuncio) {
+		tablon_.add(nuevo_anuncio);
+	}
 	
 	public void archivarAnuncio(int id) {
 		tablon_.get(id).setEstado(Estado.archivado);
 	}
 	
-	public void buscarPorFecha() {}
+	public ArrayList<Anuncio> buscarPorFecha(Date fecha) {
+		ArrayList<Anuncio> list = new ArrayList<Anuncio>;
+
+		for (Anuncio a :tablon_) {
+			if (a.getFecha() == fecha) list.add(a);
+		}
+
+		return list;
+	}
 	
 	public void buscarPorTema() {}
 	
-	public void buscarPorPropietario() {}
+	public ArrayList<Anuncio> buscarPorPropietario(Contacto propietario) {
+		ArrayList<Anuncio> list = new ArrayList<Anuncio>;
+
+		for (Anuncio a :tablon_) {
+			if (a.getPropietario().equals(propietario) == propietario) list.add(a);
+		}
+
+		return list;
+	}
 	
 	public void buscarPorDestinatario() {}
 }
