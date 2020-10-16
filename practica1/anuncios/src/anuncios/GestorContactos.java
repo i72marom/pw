@@ -505,7 +505,7 @@ public class GestorContactos {
 
 		try {
 			//D:\\Users\\Javi\\eclipse-workspace\\practica1\\bin\\configuracion.properties
-			String path = File.separator + "//D:\\\\Users\\\\Javi\\\\eclipse-workspace\\\\practica1\\\\bin\\" + File.separator + "configuracion.properties";
+			String path = "src" + File.separator +  "configuracion.properties";
 		    input = new FileInputStream(path);
 
 		    // load a properties file

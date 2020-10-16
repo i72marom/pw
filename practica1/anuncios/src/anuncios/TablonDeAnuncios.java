@@ -31,7 +31,6 @@ public class TablonDeAnuncios {
 		tablon_.set(nuevo_anuncio.getId(), nuevo_anuncio);
 	}
 	
-<<<<<<< HEAD
 	
 	public void crearAnuncio()
 	{
@@ -45,6 +44,7 @@ public class TablonDeAnuncios {
 		System.out.println("4- Tematico");
 		System.out.print("Elige uno : ");
 		int tipo = leerInts.nextInt();
+		
 		
 		if(tipo == 1)
 		{
@@ -86,9 +86,7 @@ public class TablonDeAnuncios {
 	
 	public void guardarAnuncio() {}
 
-=======
->>>>>>> rama_mmr
-	public void publicarAnuncio(Anuncio nuevo_anuncio) {
+	public void publicarAnuncio(int id) {
 		tablon_.get(id).setEstado(Estado.publicado);
 	}
 
@@ -118,7 +116,7 @@ public class TablonDeAnuncios {
 		ArrayList<Anuncio> list = new ArrayList();
 
 		for (Anuncio a :tablon_) {
-			if (a.getPropietario().equals(propietario) == propietario) list.add(a);
+			if (a.getPropietario().equals(propietario)) list.add(a);
 		}
 
 		return list;
