@@ -2,15 +2,8 @@ public class AnuncioIndividualizado extends Anuncio {
 	private ArrayList<Contacto> destinatarios_;
 
 	// constructor
-	public AnuncioIndividualizado(ArrayList<Contacto> destinatarios) {
-		super(
-			int id, 
-			String titulo, 
-			String propietario, 
-			String cuerpo, 
-			Date fecha
-		)
-		this.destinatarios_ = destinatarios;
+	public AnuncioIndividualizado() {
+		super();
 	}
 
 	// gets y sets

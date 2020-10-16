@@ -3,16 +3,8 @@ public class AnuncioFlash extends Anuncio {
 	private Date fecha_fin_;
 
 	// constructores
-	public AnuncioFlash(Date fecha_inicio, Date fecha_fin) {
-		super(
-			int id, 
-			String titulo, 
-			String propietario, 
-			String cuerpo, 
-			Date fecha
-		)
-		this.fecha_inicio_ = fecha_inicio;
-		this.fecha_fin_ = fecha_fin;
+	public AnuncioFlash() {
+		super();
 	}
 
 	// Ovservadores

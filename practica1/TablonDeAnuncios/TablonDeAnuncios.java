@@ -12,11 +12,20 @@ public class TablonDeAnuncios {
 
 	// otras funciones
 	public void editarAnuncio() {}
+	
 	public void guardarAnuncio() {}
+	
 	public void publicarAnuncio() {}
-	public void archivarAnuncio() {}
+	
+	public void archivarAnuncio(int id) {
+		tablon_.get(id).setEstado(archivado);
+	}
+	
 	public void buscarPorFecha() {}
+	
 	public void buscarPorTema() {}
+	
 	public void buscarPorPropietario() {}
+	
 	public void buscarPorDestinatario() {}
 }

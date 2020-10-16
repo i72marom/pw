@@ -5,15 +5,11 @@ public abstract class Anuncio {
 	private int id_;
 	private String titulo_, propietario_, cuerpo_; 
 	private Date fecha_publicacion;
+	private Estado estado_;
 
 	// Constructores
-	public Anuncio(int id, String titulo, String propietario, 
-	String cuerpo, Date fecha) {
-		this.id_ = id;
-		this.titulo_ = titulo;
-		this.cuerpo_ = cuerpo;
-		this.propietario_ = propietario;
-		this.fecha_ = fecha;
+	public Anuncio() {
+		// generar un id a partir del ultimo anuncio
 	}
 
 	// observadores
@@ -22,6 +18,7 @@ public abstract class Anuncio {
 	public String getPropietario() { return propietario_; }
 	public String getCuerpo() { return cuerpo_; }
 	public Date getFecha() { return fecha_; }
+	public Estado getEstado() { return estado_; }
 
 	// modificadores
 	public void setId(int id) { this.id_ = id; }
@@ -29,4 +26,5 @@ public abstract class Anuncio {
 	public void set(String propietario) { this.propietario_ = propietario; }
 	public void setCuerpo(String cuerpo) { this.cuerpo_ = cuerpo; }
 	public void setFecha(Date fecha) { this.fecha_ = fecha; }
+	public setEstado(Estado estado) { estado_ = estado; }
 }

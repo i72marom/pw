@@ -2,15 +2,8 @@ public class AnuncioTematico extends Anuncio {
 	private ArrayList<String> temas_;
 
 	// Constructores
-	public AnuncioTematico(ArrayList<String> temas) {
-		super(
-			int id, 
-			String titulo, 
-			String propietario, 
-			String cuerpo, 
-			Date fecha
-		)
-		this.temas_ = temas;
+	public AnuncioTematico() {
+		super();
 	}
 
 	// gets y sets
