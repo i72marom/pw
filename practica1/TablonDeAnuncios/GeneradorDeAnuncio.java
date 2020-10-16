@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-
-public abstract class GeneradorDeAnuncio {
+public abstract class GeneradorDeAnuncios {
 	/** 
 	 * Crea un anuncio general.
 	 * @return Anuncio.
