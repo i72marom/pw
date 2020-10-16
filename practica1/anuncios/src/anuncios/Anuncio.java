@@ -7,7 +7,7 @@ public abstract class Anuncio {
 	private String titulo_, cuerpo_; 
 	private Contacto autor_;
 	private Date fecha_;
-	//private Tipo tipo_;
+	private Tipo tipo_;
 	private Estado estado_;
 
 	// Constructores
@@ -30,4 +30,14 @@ public abstract class Anuncio {
 	public void setFecha(Date fecha) { this.fecha_ = fecha; }
 	public void setEstado(Estado estado) { this.estado_ = estado; }
 	public void setTipo(Tipo tipo) { this.tipo_ = tipo; }
+
+	@Override
+	public String toString() {
+		return "Anuncio [id_=" + id_ + ", titulo_=" + titulo_ + ", cuerpo_=" + cuerpo_ + ", autor_=" + autor_.getNombre()+" "+autor_.getApellidos()
+				+ ", fecha_=" + fecha_ + ", tipo_=" + tipo_ + ", estado_=" + estado_ + "]";
+	}
+	
+	
+	
+	
 }

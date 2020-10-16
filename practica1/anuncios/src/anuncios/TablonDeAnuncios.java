@@ -27,9 +27,37 @@ public class TablonDeAnuncios {
 	}
 
 	// otras funciones
-	public void editarAnuncio(Anuncio nuevo_anuncio, Anuncio viejo_anuncio) {
-		nuevo_anuncio.setId(viejo_anuncio.getId());
-		tablon_.set(nuevo_anuncio.getId(), nuevo_anuncio);
+	public void editarAnuncio(int id, Contacto autor) {
+		
+		String titulo, contenido, estado;
+		Tipo tipo;
+		Date date = new Date();
+		
+		System.out.println("ANUNCIO A MODIFICAR : ");
+		System.out.println(tablon_.get(id).toString());
+		
+		
+		Anuncio a = tablon_.get(id);
+		System.out.print("Titulo del anuncio : ");
+		titulo = leerStrings.nextLine();
+		System.out.print("Contenido : ");		
+		contenido = leerStrings.nextLine();
+		System.out.println("Estado (publicado|archivado) : ");
+		estado = leerStrings.nextLine();
+		if(estado.equals("publicado"))
+			a.setEstado(Estado.publicado);
+		if(estado.equals("archivado"))
+			a.setEstado(Estado.archivado);
+		
+		
+		
+		
+		a.setCuerpo(contenido);
+		a.setTitulo(titulo);
+		a.setFecha(date);
+		a.setId(tablon_.size());
+		a.setAutor(autor);
+		tablon_.set(id, a);
 	}
 	
 	
@@ -75,7 +103,7 @@ public class TablonDeAnuncios {
 			
 			a.setCuerpo(contenido);
 			a.setTitulo(titulo);
-			
+			a.setFecha(date);
 			a.setId(tablon_.size());
 			a.setAutor(autor);
 			
@@ -124,11 +152,11 @@ public class TablonDeAnuncios {
 		
 	}
 	
-	public ArrayList<Anuncio> buscarPorPropietario(Contacto propietario) {
-		ArrayList<Anuncio> list = new ArrayList();
+	public ArrayList<String> buscarPorPropietario(Contacto propietario) {
+		ArrayList<String> list = new ArrayList();
 
-		for (Anuncio a :tablon_) {
-			if (a.getAutor().equals(propietario)) list.add(a);
+		for (int i = 0;i<tablon_.size();i++) {
+			if (tablon_.get(i).getAutor().equals(propietario)) list.add("ID : " +  i + " | " + tablon_.get(i).toString());
 		}
 
 		return list;
@@ -139,14 +167,20 @@ public class TablonDeAnuncios {
 	public void listarAnuncios()
 	{
 		if(tablon_.size() == 0)
-			System.out.println("No existe ningun anuncio");
+		{
+			System.out.println("No existen anuncios aún.");
+			
+		}
 		else
 		{
+			System.out.println("Lista de anuncios : ");
 			for(int i = 0;i<tablon_.size();i++)
 			{
-				System.out.println(tablon_.get(i).toString());
-			}			
+				if(tablon_.get(i).getEstado().equals(Estado.publicado))
+					System.out.println(tablon_.get(i).toString());
+			}				
 		}
+		
 		
 
 	}

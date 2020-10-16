@@ -1,5 +1,6 @@
 package anuncios;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
@@ -7,7 +8,7 @@ public class main {
 	static Scanner leerCadenas = new Scanner(System.in);
 	static Scanner leerInts = new Scanner(System.in);
 	static GestorContactos gestorContactos = GestorContactos.getInstance();
-	
+	static TablonDeAnuncios tablon = new TablonDeAnuncios();	
 	
 	public static void main(String[] args) {
 		
@@ -65,7 +66,6 @@ public class main {
 	
 	private static void menuLogeado()
 	{
-		TablonDeAnuncios tablon = new TablonDeAnuncios();
 		int opcion;
 		
 		
@@ -98,10 +98,25 @@ public class main {
 		else if(opcion == 3)
 		{
 			System.out.println("MODIFICAR ANUNCIO\n");
-			System.out.println("Tus anuncios: ");
-			tablon.buscarPorPropietario(gestorContactos.getUserLogeado());
 			
-			System.out.println("Selecciona el id de un anuncio para modificarlo : ");
+			ArrayList<String>lista_anuncios = tablon.buscarPorPropietario(gestorContactos.getUserLogeado()); 
+			
+			if(lista_anuncios.size() > 0)
+			{
+				System.out.println("Tus anuncios: ");
+				for(int i = 0;i<lista_anuncios.size();i++)
+				{
+					System.out.println(lista_anuncios.get(i).toString());
+				}
+				System.out.println("Selecciona el id de un anuncio para modificarlo : ");
+				int id = leerInts.nextInt();
+				
+				tablon.editarAnuncio(id, gestorContactos.getUserLogeado());
+				
+			}
+				
+			menuLogeado();
+			
 			
 			
 			

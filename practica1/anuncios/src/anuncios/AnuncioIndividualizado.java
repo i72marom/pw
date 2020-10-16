@@ -18,18 +18,13 @@ public class AnuncioIndividualizado extends Anuncio {
 		this.destinatarios_ = destinatarios; 
 		}
 	
-	// otras funciones
-	public addDestinatario(Contacto destinatario) { 
-		destinatarios_.add(destinatario); 
-	}
-
-	public delDestinatario(Contacto destinatario) {
-		destinatarios_.remove(destinatario);
-	}
 	
 	public String toString() {
 		return "Anuncio [id_=" + super.getId() + ", titulo_=" + super.getTitulo() + ", propietario_=" +super.getAutor().getNombre() + " " + super.getAutor().getApellidos() + ", cuerpo_="
 				+ super.getCuerpo() + ", fecha_=" + super.getFecha() + ", estado_=" + super.getEstado() + ", destinatarios=" + destinatarios_.toString()+ "]";
 	}
 
+	// otras funciones????
+	// public addDestinatario(Contacto destinatario) {}
+	// public delDestinatario(Contacto destinatario) {}
 }
