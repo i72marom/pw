@@ -25,6 +25,7 @@ public class GestorContactos {
 	private static GestorContactos instance = null;
 	
 	
+	
 	private	Scanner leerCadenas = new Scanner(System.in);
 	private	Scanner leerNumeros = new Scanner(System.in);
 	
@@ -34,6 +35,9 @@ public class GestorContactos {
 	private String nombre_archivo_;
 	
 	
+	private boolean logged_;
+	private Contacto contacto_logeado_;
+	
 
 	
 	/**
@@ -42,6 +46,8 @@ public class GestorContactos {
 	private GestorContactos() {
 		cargarConfiguracion();
 		cargarContactos();
+		contacto_logeado_ = null;
+		logged_ = false;
 		
 	}
 	
@@ -52,6 +58,14 @@ public class GestorContactos {
 		return instance;
 	}
 	
+	public boolean getLogged()
+	{
+		return logged_;
+	}
+	public void setLogged(boolean logged)
+	{
+		this.logged_ = logged;
+	}
 	
 	public void cargarContactos() {
 		
@@ -156,8 +170,8 @@ public class GestorContactos {
         }
 	}
 	
-	public void darAltaContacto() {
-		
+	public boolean darAltaContacto() {
+		boolean error=false;
 
 		
 		String nombre, apellido1, apellido2, email;
@@ -206,15 +220,16 @@ public class GestorContactos {
 		
 		if(existeContacto(nuevoContacto) == -1)
 		{
-			System.out.println("Contacto añadido.");
+			System.out.println("Cuenta creada.");
 			contactos_.add(nuevoContacto);
 		}
 		else
 		{
 			System.out.println("Ya hay un contacto registrado con ese nombre o ese email");
+			error = true;
 		}
 		
-		
+		return error;
 	}
 	
 	
@@ -570,6 +585,59 @@ public class GestorContactos {
 	{
 		ArrayList<String> tags_user = contactos_.get(id).getTags();
 		return tags_user.toString();
+	}
+	
+	public boolean crearCuenta()
+	{
+		boolean error = false;
+		if(darAltaContacto())
+			error = true;
+		return error;
+	}
+	public boolean identificarte()
+	{
+		boolean error = false;
+		System.out.println("|----------- LOGIN -----------|");
+		System.out.println("Introduce tu nombre : ");
+		String nombre = leerCadenas.nextLine();
+		System.out.println("Introduce tu primer apellido : ");
+		String apellido1 = leerCadenas.nextLine();
+		System.out.println("Introduce tu segundo apellido : ");
+		String apellido2 = leerCadenas.nextLine();
+		
+		Contacto contacto = new Contacto(nombre, apellido1, apellido2);
+		
+		int id = existeContacto(contacto);
+		if(id != -1)
+		{
+			logged_ = true;
+			contacto_logeado_ = contactos_.get(id);
+			System.out.println("Te has loggeado correctamente.");
+		}
+		else
+		{
+			System.out.println("No existe ningún usuario con ese nombre");
+			error = true;
+		}
+		
+		return error;
+		
+	}
+	
+	public Contacto getUserLogeado()
+	{
+		return contacto_logeado_;
+	}
+	public void cerrarSesion()
+	{
+		if(logged_ == true)
+		{
+			logged_ = false;
+			contacto_logeado_ = null;
+			System.out.println("Has cerrado sesión.");
+		}
+
+		
 	}
 	
 }

@@ -1,5 +1,5 @@
 package anuncios;
-public abstract class Generador extends GeneradorDeAnuncios {
+public class Generador extends GeneradorDeAnuncios {
 	public Anuncio creaAnuncioGeneral() {
 		return new AnuncioGeneral();
 	}
