@@ -26,6 +26,10 @@ public class AnuncioIndividualizado extends Anuncio {
 	public delDestinatario(Contacto destinatario) {
 		destinatarios_.remove(destinatario);
 	}
+
+	public boolean existeContacto(Contacto c) { 
+		return this.destinatarios_.contains(c); 
+	}
 	
 	public String toString() {
 		return "Anuncio [id_=" + super.getId() + ", titulo_=" + super.getTitulo() + ", propietario_=" +super.getAutor().getNombre() + " " + super.getAutor().getApellidos() + ", cuerpo_="
