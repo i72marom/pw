@@ -100,6 +100,14 @@ public class Contacto {
 	public void setTags(ArrayList<String> tags) {
 		this.tags_ = tags;
 	}
+	public void agregarTag(String tag)
+	{
+		this.tags_.add(tag);
+	}
+	public void quitarTag(String tag)
+	{
+		this.tags_.remove(tag);
+	}
 
 	@Override
 	public String toString() {
@@ -109,8 +117,8 @@ public class Contacto {
 	
 	public int compareTo(Contacto contactoAComparar) {
 		
-		System.out.println("Comparando " + this.getEmail());
-		System.out.println("con " + contactoAComparar.getEmail());
+		//System.out.println("Comparando " + this.getEmail());
+		//System.out.println("con " + contactoAComparar.getEmail());
 		
 		if((this.getNombre().equals(contactoAComparar.getNombre()) && this.getApellidos().equals(contactoAComparar.getApellidos())) || this.getEmail().equals(contactoAComparar.getEmail()))
 		{
