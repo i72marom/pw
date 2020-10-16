@@ -97,6 +97,9 @@ public class main {
 		else if(opcion == 5)
 		{
 			
+			gestorContactos.modificarMisDatos();	
+			menuLogeado();
+			
 		}
 		else if(opcion == 6)
 		{

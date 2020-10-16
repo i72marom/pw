@@ -36,6 +36,7 @@ public class GestorContactos {
 	
 	
 	private boolean logged_;
+	private int id_contacto_logeado_;
 	private Contacto contacto_logeado_;
 	
 
@@ -62,6 +63,7 @@ public class GestorContactos {
 	{
 		return logged_;
 	}
+	
 	public void setLogged(boolean logged)
 	{
 		this.logged_ = logged;
@@ -502,8 +504,9 @@ public class GestorContactos {
 		
 
 		try {
-
-		    input = new FileInputStream("D:\\Users\\Javi\\eclipse-workspace\\practica1\\bin\\configuracion.properties");
+			//D:\\Users\\Javi\\eclipse-workspace\\practica1\\bin\\configuracion.properties
+			String path = File.separator + "//D:\\\\Users\\\\Javi\\\\eclipse-workspace\\\\practica1\\\\bin\\" + File.separator + "configuracion.properties";
+		    input = new FileInputStream(path);
 
 		    // load a properties file
 		    prop.load(input);
@@ -612,6 +615,7 @@ public class GestorContactos {
 		{
 			logged_ = true;
 			contacto_logeado_ = contactos_.get(id);
+			id_contacto_logeado_ = id;
 			System.out.println("Te has loggeado correctamente.");
 		}
 		else
@@ -639,5 +643,96 @@ public class GestorContactos {
 
 		
 	}
-	
+	public void modificarMisDatos()
+	{
+		int opcion, subopcion, id;
+		
+		id=id_contacto_logeado_;
+		
+		System.out.println("ID: " + id + " | " +contactos_.get(id));
+		System.out.println("1- Modificar nombre");
+		System.out.println("2- Modificar edad");
+		System.out.println("3- Modificar email");
+		System.out.println("4- Modificar tags");
+		System.out.println("5- Salir");
+		System.out.print("Elija una opcion : ");
+		
+		opcion = leerNumeros.nextInt();
+		
+		if(opcion == 1)
+		{
+			String nombre, apellido1, apellido2;
+			System.out.print("Ingresa el nuevo nombre del contacto: ");
+			nombre = leerCadenas.nextLine();
+			System.out.print("Ingresa el nuevo primer apellido del contacto: ");
+			apellido1 = leerCadenas.nextLine();
+			System.out.print("Ingresa el nuevo segundo apellido del contacto: ");
+			apellido2 = leerCadenas.nextLine();
+			
+			contactos_.get(id).setNombre(nombre);
+			contactos_.get(id).setApellidos(apellido1, apellido2);
+			System.out.println("Nombre y apellidos cambiados a " + nombre + " " + apellido1 + " "+ apellido2 + ".\n");
+			
+		}
+		else if(opcion == 2)
+		{
+			int edad;
+			System.out.print("Introduzca la nueva edad :");
+			edad = leerNumeros.nextInt();
+			
+			contactos_.get(id).setEdad(edad);
+			System.out.println("Edad cambiada a " + edad + ".\n");
+		}
+		else if(opcion == 3)
+		{
+			String email;
+			System.out.print("Introduce el nuevo email : ");
+			email = leerCadenas.nextLine();
+			
+			contactos_.get(id).setEmail(email);
+			System.out.println("Email cambiado a " + email +".\n");
+		}
+		else if(opcion == 4)
+		{
+			System.out.println("1- Agregar tag");
+			System.out.println("2- Quitar tag");
+			System.out.print("Seleccione opcion :");
+			
+			subopcion = leerNumeros.nextInt();
+			
+			if(subopcion == 1)
+			{
+				System.out.println("Tags restantes por añadir : " + tagsRestantes(id));
+				System.out.print("Escriba un tag : ");
+				
+				String nuevoTag = leerCadenas.nextLine();
+				System.out.println(nuevoTag);
+				if(!tieneEseTagAnadido(nuevoTag, contactos_.get(id).getTags()) && perteneceTagsDisponibles(nuevoTag))
+				{
+					contactos_.get(id).agregarTag(nuevoTag);		
+					System.out.println("Tag " + nuevoTag + " añadido.\n");
+				}
+				else
+				{
+					System.out.println("Tag erroneo");
+				}
+
+			}
+			else if(subopcion == 2)
+			{
+				System.out.println("Tags del user : " + tagsUser(id));
+				System.out.print("Escriba el tag a quitar : ");
+				String tagQuitar = leerCadenas.nextLine();
+				if(tieneEseTagAnadido(tagQuitar, contactos_.get(id).getTags()))
+				{
+					contactos_.get(id).quitarTag(tagQuitar);
+					System.out.println("Tag " + tagQuitar + " quitado.\n");
+				}
+				else
+				{
+					System.out.println("Tag erroneo.");
+				}
+			}
+		}
+	}
 }
