@@ -25,6 +25,7 @@ public class main {
 		System.out.println("---------------------------------------");
 		System.out.println("1- Crear cuenta");
 		System.out.println("2- Identificarte");
+		System.out.println("3- Cerrar");
 		System.out.print("Elige una opcion : ");
 		opcion = leerInts.nextInt();
 
@@ -37,6 +38,8 @@ public class main {
 			identificarte();
 			
 		}
+		if(opcion == 3)
+			gestorContactos.guardarContactos();
 		
 	}
 	
@@ -74,9 +77,9 @@ public class main {
 		System.out.println("3- Modificar anuncio");
 		System.out.println("4- Archivar anuncio");
 		System.out.println("5- Modificar mis datos");
-		System.out.println("6- Cerrar sesión");
-		System.out.println("7- Salir de la aplicación");
-		System.out.println("6- Cerrar sesion");
+		System.out.println("6- Listar usuarios");
+		System.out.println("7- Cerrar sesión");
+		System.out.println("8- Salir de la aplicación");
 		
 		System.out.print("Elige una opcion : ");
 		
@@ -84,11 +87,13 @@ public class main {
 		
 		if(opcion == 1)
 		{
-			
+			tablon.listarAnuncios();
+			menuLogeado();
 		}
 		else if(opcion == 2)
 		{
-			tablon.crearAnuncio();
+			tablon.crearAnuncio(gestorContactos.getUserLogeado());
+			menuLogeado();
 		}
 		else if(opcion == 3)
 		{
@@ -114,10 +119,15 @@ public class main {
 		}
 		else if(opcion == 6)
 		{
+			gestorContactos.mostrarContactos();
+			menuLogeado();
+		}
+		else if(opcion == 7)
+		{
 			gestorContactos.cerrarSesion();
 			menu();
 		}
-		else if(opcion == 7)
+		else if(opcion == 8)
 		{
 			gestorContactos.cerrarSesion();
 			gestorContactos.guardarContactos();

@@ -6,7 +6,8 @@ import java.util.ArrayList;
 
 
 public class TablonDeAnuncios {
-	private ArrayList<Anuncio> tablon_;
+	private ArrayList<Anuncio> tablon_ = new ArrayList();
+	
 	
 
 	
@@ -32,7 +33,7 @@ public class TablonDeAnuncios {
 	}
 	
 	
-	public void crearAnuncio()
+	public void crearAnuncio(Contacto autor)
 	{
 		String titulo, contenido;
 		String publicar;
@@ -49,23 +50,37 @@ public class TablonDeAnuncios {
 		if(tipo == 1)
 		{
 			//pedir datos del anuncio
+			System.out.print("Titulo del anuncio : ");
+			titulo = leerStrings.nextLine();
+			System.out.print("Contenido : ");
 			
-
+			AnuncioGeneral a = (AnuncioGeneral) anuncio.creaAnuncioGeneral();
+			
+			contenido = leerStrings.nextLine();
 			
 			System.out.print("¿Desea publicarlo ya? (si|no) : ");
 			publicar = leerStrings.nextLine();
 			if(publicar.equals("si"))
 			{
-				Estado estado = Estado.publicado;
+				a.setEstado(Estado.publicado);
 			}
 			else if(publicar.equals("no"))
 			{
-				Estado estado = Estado.en_espera;
+				a.setEstado(Estado.editado);
 			}
 			
 			
 			
-			AnuncioGeneral a = (AnuncioGeneral) anuncio.creaAnuncioGeneral();
+
+			
+			a.setCuerpo(contenido);
+			a.setTitulo(titulo);
+			
+			a.setId(tablon_.size());
+			a.setAutor(autor);
+			
+			System.out.println("Anuncio añadido");
+			tablon_.add(a);
 			
 		}
 		else if(tipo == 2)
@@ -83,9 +98,6 @@ public class TablonDeAnuncios {
 		
 	}
 	
-	
-	public void guardarAnuncio() {}
-
 	public void publicarAnuncio(int id) {
 		tablon_.get(id).setEstado(Estado.publicado);
 	}
@@ -116,11 +128,27 @@ public class TablonDeAnuncios {
 		ArrayList<Anuncio> list = new ArrayList();
 
 		for (Anuncio a :tablon_) {
-			if (a.getPropietario().equals(propietario)) list.add(a);
+			if (a.getAutor().equals(propietario)) list.add(a);
 		}
 
 		return list;
 	}
 	
 	public void buscarPorDestinatario() {}
+	
+	public void listarAnuncios()
+	{
+		if(tablon_.size() == 0)
+			System.out.println("No existe ningun anuncio");
+		else
+		{
+			for(int i = 0;i<tablon_.size();i++)
+			{
+				System.out.println(tablon_.get(i).toString());
+			}			
+		}
+		
+
+	}
+	
 }

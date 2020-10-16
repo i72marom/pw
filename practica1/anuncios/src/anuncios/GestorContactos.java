@@ -31,7 +31,6 @@ public class GestorContactos {
 	
 	private static ArrayList<Contacto> contactos_ = new ArrayList();
 	private String[] tags_disponibles_;
-	private String ruta_archivo_;
 	private String nombre_archivo_;
 	
 	
@@ -78,7 +77,8 @@ public class GestorContactos {
 	      try {
 	         // Apertura del fichero y creacion de BufferedReader para poder
 	         // hacer una lectura comoda (disponer del metodo readLine()).
-	         archivo = new File (ruta_archivo_+nombre_archivo_);
+	    	  String path ="files" + File.separator + "contactos.txt";
+	         archivo = new File (path);
 	         fr = new FileReader (archivo);
 	         br = new BufferedReader(fr);
 
@@ -140,7 +140,7 @@ public class GestorContactos {
         PrintWriter pw = null;
         try
         {
-            fichero = new FileWriter(ruta_archivo_+nombre_archivo_);
+            fichero = new FileWriter("files" + File.separator + "contactos.txt");
             pw = new PrintWriter(fichero);
 
             for (int i = 0; i<contactos_.size(); i++)
@@ -513,7 +513,6 @@ public class GestorContactos {
 
 		    String valor = prop.getProperty("tags_disponibles");
 		    this.tags_disponibles_ = valor.split(", ");
-		    ruta_archivo_ = prop.getProperty("ruta_fichero");
 		    nombre_archivo_ = prop.getProperty("nombre_fichero");
 		    
 		    for(int i = 0;i<tags_disponibles_.length;i++)
