@@ -18,6 +18,21 @@ public class AnuncioIndividualizado extends Anuncio {
 		this.destinatarios_ = destinatarios; 
 		}
 	
+<<<<<<< HEAD
+=======
+	// otras funciones
+	public addDestinatario(Contacto destinatario) { 
+		destinatarios_.add(destinatario); 
+	}
+
+	public delDestinatario(Contacto destinatario) {
+		destinatarios_.remove(destinatario);
+	}
+
+	public boolean existeContacto(Contacto c) { 
+		return this.destinatarios_.contains(c); 
+	}
+>>>>>>> rama_mmr
 	
 	public String toString() {
 		return "Anuncio [id_=" + super.getId() + ", titulo_=" + super.getTitulo() + ", propietario_=" +super.getAutor().getNombre() + " " + super.getAutor().getApellidos() + ", cuerpo_="
