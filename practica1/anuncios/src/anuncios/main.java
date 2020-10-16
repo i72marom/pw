@@ -22,6 +22,8 @@ public class main {
 	}
 	public static void menu()
 	{
+		
+		
 		int opcion = 0;
 		System.out.println("---------------------------------------");
 		System.out.println("1- Crear cuenta");
@@ -87,7 +89,7 @@ public class main {
 		
 		if(opcion == 1)
 		{
-			tablon.listarAnuncios();
+			tablon.listarAnuncios(gestorContactos.getUserLogeado());
 			menuLogeado();
 		}
 		else if(opcion == 2)
@@ -123,6 +125,23 @@ public class main {
 		}
 		else if(opcion == 4)
 		{
+			System.out.println("ARCHIVAR ANUNCIO\n");
+			
+			ArrayList<String>lista_anuncios = tablon.buscarPorPropietario(gestorContactos.getUserLogeado()); 
+			
+			if(lista_anuncios.size() > 0)
+			{
+				System.out.println("Tus anuncios: ");
+				for(int i = 0;i<lista_anuncios.size();i++)
+				{
+					System.out.println(lista_anuncios.get(i).toString());
+				}	
+				System.out.println("Selecciona el id de un anuncio para modificarlo : ");
+				int id = leerInts.nextInt();
+				
+				tablon.archivarAnuncio(id);;
+			}
+			menuLogeado();
 			
 		}
 		else if(opcion == 5)
@@ -140,12 +159,14 @@ public class main {
 		else if(opcion == 7)
 		{
 			gestorContactos.cerrarSesion();
+			tablon.guardarTablon();
 			menu();
 		}
 		else if(opcion == 8)
 		{
 			gestorContactos.cerrarSesion();
 			gestorContactos.guardarContactos();
+			tablon.guardarTablon();
 			
 		}
 	}

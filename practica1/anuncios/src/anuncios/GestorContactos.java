@@ -420,6 +420,20 @@ public class GestorContactos {
 		
 	}
 	
+	public Contacto retornarContacto(String nombre, String apellido1, String apellido2)
+	{
+		for(int i = 0;i<contactos_.size();i++)
+		{
+			if(contactos_.get(i).getNombre().equals(nombre) && contactos_.get(i).getApellido1().equals(apellido1) && contactos_.get(i).getApellido2().equals(apellido2))
+			{
+				return contactos_.get(i);
+			}
+
+		}
+		return null;
+		
+	}
+	
 	public void buscarContactoPorTag() {
 		
 		String tag;

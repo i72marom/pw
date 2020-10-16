@@ -1,6 +1,11 @@
 package anuncios;
 import java.util.Date;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 
@@ -16,14 +21,45 @@ public class TablonDeAnuncios {
 	
 	Generador anuncio = new Generador();
 	 
-	public TablonDeAnuncios() {}
+	public TablonDeAnuncios() {
+		
+		
+	}
 
 	// observadores y modificadores
-	public ArrayList<Anuncio> getTablon() { 
-		return tablon_; 
+	public void guardarTablon() { 
+		
+		FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+            fichero = new FileWriter("files" + File.separator + "tablon.txt");
+            pw = new PrintWriter(fichero);
+
+            for (int i = 0; i<tablon_.size(); i++)
+            {
+            	  pw.print(tablon_.get(i).getTitulo() + "| " + tablon_.get(i).getAutor().getNombre() + "| " + tablon_.get(i).getAutor().getApellido1() + "| "+ tablon_.get(i).getAutor().getApellido2() + "| " +tablon_.get(i).getCuerpo()+ "| " + tablon_.get(i).getEstado() + "| " + tablon_.get(i).getTipo() + "| " + tablon_.get(i).getFecha());
+            	  pw.println();
+            }
+              
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+           // Nuevamente aprovechamos el finally para 
+           // asegurarnos que se cierra el fichero.
+           if (null != fichero)
+              fichero.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
+		
+		
 	}
-	public void setTablon(ArrayList<Anuncio> tablon) { 
-		this.tablon_ = tablon; 
+	public void cargarTablon(GestorContactos gestor) { 
+	
 	}
 
 	// otras funciones
@@ -42,12 +78,14 @@ public class TablonDeAnuncios {
 		titulo = leerStrings.nextLine();
 		System.out.print("Contenido : ");		
 		contenido = leerStrings.nextLine();
-		System.out.println("Estado (publicado|archivado) : ");
+		System.out.print("Estado (publicado|archivado|editado) : ");
 		estado = leerStrings.nextLine();
 		if(estado.equals("publicado"))
 			a.setEstado(Estado.publicado);
 		if(estado.equals("archivado"))
 			a.setEstado(Estado.archivado);
+		if(estado.equals("editado"))
+			a.setEstado(Estado.editado);
 		
 		
 		
@@ -55,7 +93,6 @@ public class TablonDeAnuncios {
 		a.setCuerpo(contenido);
 		a.setTitulo(titulo);
 		a.setFecha(date);
-		a.setId(tablon_.size());
 		a.setAutor(autor);
 		tablon_.set(id, a);
 	}
@@ -104,8 +141,8 @@ public class TablonDeAnuncios {
 			a.setCuerpo(contenido);
 			a.setTitulo(titulo);
 			a.setFecha(date);
-			a.setId(tablon_.size());
 			a.setAutor(autor);
+			a.setTipo(Tipo.general);
 			
 			System.out.println("Anuncio añadido");
 			tablon_.add(a);
@@ -164,25 +201,23 @@ public class TablonDeAnuncios {
 	
 	public void buscarPorDestinatario() {}
 	
-	public void listarAnuncios()
+	public void listarAnuncios(Contacto contacto)
 	{
-		if(tablon_.size() == 0)
+		int numA = 0;
+		System.out.println("Lista de anuncios : ");
+		for(int i = 0;i<tablon_.size();i++)
 		{
-			System.out.println("No existen anuncios aún.");
-			
-		}
-		else
-		{
-			System.out.println("Lista de anuncios : ");
-			for(int i = 0;i<tablon_.size();i++)
-			{
 				if(tablon_.get(i).getEstado().equals(Estado.publicado))
+				{
 					System.out.println(tablon_.get(i).toString());
-			}				
+					numA++;
+				}				
 		}
-		
-		
-
+						
+		if(numA == 0)
+			System.out.println("No hay anuncios para mostrar.\n");
 	}
+		
+		
 	
 }

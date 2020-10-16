@@ -20,7 +20,7 @@ public class AnuncioFlash extends Anuncio {
 
 	@Override
 	public String toString() {
-		return "Anuncio [id_=" + super.getId() + ", titulo_=" + super.getTitulo() + ", propietario_=" +super.getAutor().getNombre() + " " + super.getAutor().getApellidos() + ", cuerpo_="
+		return "Anuncio [titulo_=" + super.getTitulo() + ", propietario_=" +super.getAutor().getNombre() + " " + super.getAutor().getApellidos() + ", cuerpo_="
 				+ super.getCuerpo() + ", fecha_=" + super.getFecha() + ", estado_=" + super.getEstado() + ", fecha_inicio_=" + fecha_inicio_.toString() + 
 				", fecha_fin_" + fecha_fin_.toString() + "]";
 	}

@@ -3,7 +3,6 @@ import java.util.Date;
 import java.util.ArrayList;
 
 public abstract class Anuncio {
-	private int id_;
 	private String titulo_, cuerpo_; 
 	private Contacto autor_;
 	private Date fecha_;
@@ -14,7 +13,6 @@ public abstract class Anuncio {
 	public Anuncio() {}
 
 	// observadores
-	public int getId() { return id_; }
 	public String getTitulo() { return titulo_; }
 	public Contacto getAutor() { return autor_; }
 	public String getCuerpo() { return cuerpo_; }
@@ -23,7 +21,6 @@ public abstract class Anuncio {
 	public Tipo getTipo() { return tipo_; }
 
 	// modificadores
-	public void setId(int id) { this.id_ = id; }
 	public void setTitulo(String titulo) { this.titulo_ = titulo; }
 	public void setAutor(Contacto autor) { this.autor_ = autor; }
 	public void setCuerpo(String cuerpo) { this.cuerpo_ = cuerpo; }
@@ -33,7 +30,7 @@ public abstract class Anuncio {
 
 	@Override
 	public String toString() {
-		return "Anuncio [id_=" + id_ + ", titulo_=" + titulo_ + ", cuerpo_=" + cuerpo_ + ", autor_=" + autor_.getNombre()+" "+autor_.getApellidos()
+		return "Anuncio [titulo_=" + titulo_ + ", cuerpo_=" + cuerpo_ + ", autor_=" + autor_.getNombre()+" "+autor_.getApellidos()
 				+ ", fecha_=" + fecha_ + ", tipo_=" + tipo_ + ", estado_=" + estado_ + "]";
 	}
 	
