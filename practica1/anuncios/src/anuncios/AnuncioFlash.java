@@ -17,4 +17,14 @@ public class AnuncioFlash extends Anuncio {
 	// Modificadores
 	public void setFechaInicio(Date fecha_inicio) { this.fecha_inicio_ = fecha_inicio; }
 	public void setFechaFin(Date fecha_fin) { this.fecha_fin_ = fecha_fin; }
+
+	@Override
+	public String toString() {
+		return "Anuncio [id_=" + super.getId() + ", titulo_=" + super.getTitulo() + ", propietario_=" +super.getPropietario() + ", cuerpo_="
+				+ super.getCuerpo() + ", fecha_=" + super.getFecha() + ", estado_=" + super.getEstado() + ", fecha_inicio_=" + fecha_inicio_.toString() + 
+				", fecha_fin_" + fecha_fin_.toString() + "]";
+	}
+	
+	
+	
 }

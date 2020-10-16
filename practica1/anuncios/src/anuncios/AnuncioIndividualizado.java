@@ -17,6 +17,12 @@ public class AnuncioIndividualizado extends Anuncio {
 	public void setDestinatarios(ArrayList<Contacto> destinatarios) { 
 		this.destinatarios_ = destinatarios; 
 		}
+	
+	
+	public String toString() {
+		return "Anuncio [id_=" + super.getId() + ", titulo_=" + super.getTitulo() + ", propietario_=" +super.getPropietario() + ", cuerpo_="
+				+ super.getCuerpo() + ", fecha_=" + super.getFecha() + ", estado_=" + super.getEstado() + ", destinatarios=" + destinatarios_.toString()+ "]";
+	}
 
 	// otras funciones????
 	// public addDestinatario(Contacto destinatario) {}
