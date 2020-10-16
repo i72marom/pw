@@ -1,5 +1,6 @@
 package anuncios;
-public enum Estado {
+
+public enum Tipo {
 	general,
 	flash,
 	tematico,

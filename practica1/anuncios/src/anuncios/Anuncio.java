@@ -20,7 +20,7 @@ public abstract class Anuncio {
 	public String getCuerpo() { return cuerpo_; }
 	public Date getFecha() { return fecha_; }
 	public Estado getEstado() { return estado_; }
-	//public Tipo getTipo() { return tipo_; }
+	public Tipo getTipo() { return tipo_; }
 
 	// modificadores
 	public void setId(int id) { this.id_ = id; }
@@ -29,5 +29,5 @@ public abstract class Anuncio {
 	public void setCuerpo(String cuerpo) { this.cuerpo_ = cuerpo; }
 	public void setFecha(Date fecha) { this.fecha_ = fecha; }
 	public void setEstado(Estado estado) { this.estado_ = estado; }
-	//public void setTipo(Tipo tipo) { this.tipo_ = tipo; }
+	public void setTipo(Tipo tipo) { this.tipo_ = tipo; }
 }
