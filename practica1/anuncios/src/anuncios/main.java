@@ -19,15 +19,9 @@ public class main {
 	public static void main(String[] args) {
 		menu();
 	}
-<<<<<<< HEAD
-	public static void menu()
-	{
-		
-		
-=======
+
 
 	public static void menu() {
->>>>>>> rama_mmr
 		int opcion = 0;
 		System.out.println("---------------------------------------");
 		System.out.println("1- Crear cuenta");
@@ -71,14 +65,8 @@ public class main {
 		
 		opcion = leerInts.nextInt();
 		
-<<<<<<< HEAD
-		if(opcion == 1)
-		{
-			tablon.listarAnuncios(gestorContactos.getUserLogeado());
-=======
 		if(opcion == 1) {
 			tablon.listarAnuncios();
->>>>>>> rama_mmr
 			menuLogeado();
 		}
 		else if(opcion == 2) {
@@ -110,7 +98,6 @@ public class main {
 			
 			
 		}
-<<<<<<< HEAD
 		else if(opcion == 4)
 		{
 			System.out.println("ARCHIVAR ANUNCIO\n");
@@ -130,9 +117,6 @@ public class main {
 				tablon.archivarAnuncio(id);;
 			}
 			menuLogeado();
-=======
-		else if(opcion == 4) {
->>>>>>> rama_mmr
 			
 		}
 		else if(opcion == 5) {
