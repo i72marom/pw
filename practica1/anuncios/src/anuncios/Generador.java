@@ -1,3 +1,9 @@
+/**
+ * Factoria concreta. Se encarga de generar los distintos tipos de anuncios. 
+ * @author Javier Luna Carmona
+ * @author Nanuel Jesus Mariscal Romero
+*/
+
 package anuncios;
 public class Generador extends GeneradorDeAnuncios {
 	public Anuncio creaAnuncioGeneral() {

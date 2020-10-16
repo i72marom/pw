@@ -1,3 +1,15 @@
+/**
+ * Clase Anuncio. compuesto de un identificador, título, usuario propietario, 
+ * (0+) usuarios destinatarios y el cuerpo del anuncio. 
+ * En el tablón se podrán generar 4 tipos de anuncios:
+ * - Anuncio general.
+ * - Anuncio temático.
+ * - Anuncio individualizado.
+ * - Anuncio flash.
+ * @author Javier Luna Carmona
+ * @author Nanuel Jesus Mariscal Romero
+*/
+
 package anuncios;
 import java.util.Date;
 import java.util.ArrayList;
@@ -33,8 +45,4 @@ public abstract class Anuncio {
 		return "Anuncio [titulo_=" + titulo_ + ", cuerpo_=" + cuerpo_ + ", autor_=" + autor_.getNombre()+" "+autor_.getApellidos()
 				+ ", fecha_=" + fecha_ + ", tipo_=" + tipo_ + ", estado_=" + estado_ + "]";
 	}
-	
-	
-	
-	
 }

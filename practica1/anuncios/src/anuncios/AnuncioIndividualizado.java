@@ -1,3 +1,10 @@
+/**
+ * Anuncio individualizado. Se remite específicamente a uno o varios usuarios 
+ * destinatarios.
+ * @author Javier Luna Carmona
+ * @author Nanuel Jesus Mariscal Romero
+*/
+
 package anuncios;
 import java.util.ArrayList;
 
@@ -12,11 +19,11 @@ public class AnuncioIndividualizado extends Anuncio {
 	// gets y sets
 	public ArrayList<Contacto> getDestinatarios() { 
 		return destinatarios_; 
-		}
+	}
 	
 	public void setDestinatarios(ArrayList<Contacto> destinatarios) { 
 		this.destinatarios_ = destinatarios; 
-		}
+	}
 	
 	
 	public String toString() {

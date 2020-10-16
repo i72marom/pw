@@ -1,3 +1,13 @@
+/**
+ * Gestor de contactos. Es único, independientemente del objeto que lo invoque,
+ * y se implementa mediante el patrón de diseño Singleton. Las operaciones 
+ * que ofrece son: dar de alta contacto, dar de baja contacto, consultar 
+ * datos de contacto, actualizar datos de contacto, buscar contacto por
+ * email, buscar por {nombre, apellidos}, buscar por interés, buscar por edad.
+ * @author Javier Luna Carmona
+ * @author Nanuel Jesus Mariscal Romero
+*/
+
 package anuncios;
 
 import java.io.BufferedReader;
@@ -51,23 +61,37 @@ public class GestorContactos {
 		
 	}
 	
+	/**
+	 * getInstance description
+	 * @return description
+	 */
 	public static GestorContactos getInstance() {
 		if(instance == null) {
 			instance = new GestorContactos();
 		}
+
 		return instance;
 	}
 	
-	public boolean getLogged()
-	{
+	/**
+	 * getLogged description
+	 * @return description
+	 */
+	public boolean getLogged() {
 		return logged_;
 	}
 	
-	public void setLogged(boolean logged)
-	{
+	/**
+	 * setLogged description
+	 * @return description
+	 */
+	public void setLogged(boolean logged) {
 		this.logged_ = logged;
 	}
 	
+	/**
+	 * [cargarContactos description]
+	 */
 	public void cargarContactos() {
 		
 		File archivo = null;
@@ -135,6 +159,9 @@ public class GestorContactos {
 		
 	}
 	
+	/**
+	 * [guardarContactos description]
+	 */
 	public void guardarContactos() {
 		FileWriter fichero = null;
         PrintWriter pw = null;
