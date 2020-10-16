@@ -1,3 +1,9 @@
+/**
+ * Tipos de auncio disponibles.
+ * @author Javier Luna Carmona
+ * @author Nanuel Jesus Mariscal Romero
+*/
+
 package anuncios;
 
 public enum Tipo {
@@ -5,17 +11,4 @@ public enum Tipo {
 	flash,
 	tematico,
 	individualizado
-}
-
-
-public ArrayList<Anuncio> buscarPorDestinatario(Contacto c) {
-	ArrayList<Anuncio> anuncios;
-
-	for (Anuncio a : this.tablon_) {
-		if (a.getTipo() == Tipo.individualizado && a.existeContacto(c)) {
-			anuncios.add(a);
-		}
-	}
-
-	return anuncios;
 }

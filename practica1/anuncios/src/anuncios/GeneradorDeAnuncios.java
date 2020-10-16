@@ -1,4 +1,11 @@
+/**
+ * Factoria abstracta de los anuncios.
+ * @author Javier Luna Carmona
+ * @author Nanuel Jesus Mariscal Romero
+*/
+
 package anuncios;
+
 public abstract class GeneradorDeAnuncios {
 	/** 
 	 * Crea un anuncio general.

@@ -1,3 +1,10 @@
+/**
+ * Clase Anuncio flash. muestra en el tablón restringido entre una fecha/hora de
+ * inicio y una fecha/hora final.
+ * @author Javier Luna Carmona
+ * @author Nanuel Jesus Mariscal Romero
+*/
+
 package anuncios;
 import java.util.Date;
 

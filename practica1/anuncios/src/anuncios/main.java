@@ -1,3 +1,9 @@
+/**
+ * Programa principal.
+ * @author Javier Luna Carmona
+ * @author Nanuel Jesus Mariscal Romero
+*/
+
 package anuncios;
 
 import java.util.ArrayList;
@@ -11,17 +17,10 @@ public class main {
 	static TablonDeAnuncios tablon = new TablonDeAnuncios();	
 	
 	public static void main(String[] args) {
-		
-		
-		
-
 		menu();
-		
-
-		
 	}
-	public static void menu()
-	{
+
+	public static void menu() {
 		int opcion = 0;
 		System.out.println("---------------------------------------");
 		System.out.println("1- Crear cuenta");
@@ -30,42 +29,22 @@ public class main {
 		System.out.print("Elige una opcion : ");
 		opcion = leerInts.nextInt();
 
-		if(opcion == 1)
-		{
-			crearCuenta();
-		}
-		if(opcion == 2)
-		{
-			identificarte();
-			
-		}
-		if(opcion == 3)
-			gestorContactos.guardarContactos();
-		
+		if(opcion == 1) crearCuenta();
+		if(opcion == 2) identificarte();
+		if(opcion == 3) gestorContactos.guardarContactos();
 	}
 	
-	public static void crearCuenta()
-	{
-		if(!gestorContactos.crearCuenta())
-			identificarte();
-		else
-			menu();
-			
-			
-		
-		
+	public static void crearCuenta() {
+		if(!gestorContactos.crearCuenta()) identificarte();
+		else menu();
 	}
 	
-	public static void identificarte()
-	{
-		if(!gestorContactos.identificarte())
-			menuLogeado();
-		else
-			menu();
+	public static void identificarte() {
+		if(!gestorContactos.identificarte()) menuLogeado();
+		else menu();
 	}
 	
-	private static void menuLogeado()
-	{
+	private static void menuLogeado() {
 		int opcion;
 		
 		
@@ -85,18 +64,15 @@ public class main {
 		
 		opcion = leerInts.nextInt();
 		
-		if(opcion == 1)
-		{
+		if(opcion == 1) {
 			tablon.listarAnuncios();
 			menuLogeado();
 		}
-		else if(opcion == 2)
-		{
+		else if(opcion == 2) {
 			tablon.crearAnuncio(gestorContactos.getUserLogeado());
 			menuLogeado();
 		}
-		else if(opcion == 3)
-		{
+		else if(opcion == 3) {
 			System.out.println("MODIFICAR ANUNCIO\n");
 			
 			ArrayList<String>lista_anuncios = tablon.buscarPorPropietario(gestorContactos.getUserLogeado()); 
@@ -121,29 +97,22 @@ public class main {
 			
 			
 		}
-		else if(opcion == 4)
-		{
+		else if(opcion == 4) {
 			
 		}
-		else if(opcion == 5)
-		{
-			
+		else if(opcion == 5) {
 			gestorContactos.modificarMisDatos();	
 			menuLogeado();
-			
 		}
-		else if(opcion == 6)
-		{
+		else if(opcion == 6) {
 			gestorContactos.mostrarContactos();
 			menuLogeado();
 		}
-		else if(opcion == 7)
-		{
+		else if(opcion == 7) {
 			gestorContactos.cerrarSesion();
 			menu();
 		}
-		else if(opcion == 8)
-		{
+		else if(opcion == 8) {
 			gestorContactos.cerrarSesion();
 			gestorContactos.guardarContactos();
 			

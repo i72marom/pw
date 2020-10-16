@@ -1,3 +1,9 @@
+/**
+ * Anuncio tematico. Tiene asociado uno o mas temas de interes. 
+ * @author Javier Luna Carmona
+ * @author Nanuel Jesus Mariscal Romero
+*/
+
 package anuncios;
 
 import java.util.ArrayList;
@@ -19,7 +25,7 @@ public class AnuncioTematico extends Anuncio {
 		this.temas_ = temas; 
 	}
 
-	// otras funciones????
+	// otras funciones
 	public addTema(String tema) { this.temas_.add(tema); }
 	public delTema(String tema) { this.temas_.remove(tema); }
 
