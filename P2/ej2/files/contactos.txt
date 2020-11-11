@@ -1,0 +1,3 @@
+0, javi, luna, carmona, 20, javpunt, 21, 8, 2020, amor, cultura
+1, jose, toledano, porras, 20, jos, 13, 3, 2000, amor
+2, cristian, ruiz, gil, 20, cr, 1, 10, 2000, entretenimiento
