@@ -1,27 +1,62 @@
 create database tablon;
 
 create table contactos(
-	id_contacto int,
-	nombre varchar(255),
-	primer_apellido varchar(255),
-	segundo_apellido varchar(255),
-	email varchar(255),
-	fecha_nacimiento date,
+	id_contacto int not null auto_increment,
+	nombre varchar(255) not null,
+	primer_apellido varchar(255) not null,
+	segundo_apellido varchar(255) not null,
+	email varchar(255) not null,
+	fecha_nacimiento date not null,
+	pass varchar not null,
 	tags set("amor", "entretenimiento", "cultura", "deportes", "comida")
-);
-
-create table tablon(
-	id_tablon int,
-	id_contacto int,
-	id_anuncio int
 );
 
 create table anuncio(
-	id_anuncio int,
-	id_contacto int,
-	titulo varchar(255),
-	cuerpo varchar(65535),
-	fecha date,
-	estado enum("editado", "en_espera", "publicado", "archivado"),
+	id_anuncio int not null auto_increment,
+	id_autor_fk int not null,
+	titulo varchar(255) not null,
+	cuerpo varchar(65535) not null,
+	fecha date not null,
+	estado enum("editado", "en_espera", "publicado", "archivado") not null,
 	tags set("amor", "entretenimiento", "cultura", "deportes", "comida")
 );
+
+create table anuncio_flash(
+	id_anuncio_flash int, not null
+	anuncio_fk_f int not null,
+	fecha_fin date not null,
+);
+
+create table anuncio_individualizado(
+	id_anuncio_ind int not null,
+	anuncio_fk_i int not null,
+);
+
+create table anuncio_tematico(
+	id_anuncio_tematico int not null,
+	anuncio_fk_t int not null,
+	tags set("amor", "entretenimiento", "cultura", "deportes", "comida")
+);
+
+create table tema_dest(
+	id_tema_dest int not null,
+	anuncio_nm_fk int not null,
+	dest_fk int not null
+);
+
+alter table anuncio add primary key (id_anuncio);
+alter table contactos add primary key (id_contacto);
+alter table anuncio_flash add primary key (id_anuncio_flash);
+alter table anuncio_individualizado add primary key (id_anuncio_ind);
+alter table anuncio_tematico add primary key (id_anuncio_tematico);
+alter table tema_dest add primary key (id_tema_dest);
+
+alter table anuncio add foreign key (id_autor_fk) references (id_contacto);
+alter table anuncio_flash add foreign key (anuncio_fk_f) references (id_anucnio);
+alter table anuncio_individualizado add foreign key (anuncio_fk_i) references (id_anucnio);
+alter table anuncio_tematico add foreign key (anuncio_fk_t) references (id_anucnio);
+alter table tema_dest add foreign key (anuncio_nm_fk) references (id_anucnio);
+alter table tema_dest add foreign key (dest_fk) references (id_contacto);
+
+alter table contactos add unique (id_contacto);
+alter table anuncio add unique (id_anuncio);
