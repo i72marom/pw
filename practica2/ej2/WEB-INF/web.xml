@@ -2,7 +2,7 @@
 <web-app>
 	<servlet>
 	       <servlet-name>login</servlet-name>
-	       <servlet-class>servlet.InicioSesion</servlet-class>
+	       <servlet-class>prueba.servlet.InicioSesion</servlet-class>
 	</servlet>
 	<servlet-mapping>
 	       <servlet-name>login</servlet-name>
