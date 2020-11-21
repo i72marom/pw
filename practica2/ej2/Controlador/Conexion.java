@@ -1,27 +1,28 @@
-package ej2;
+package Controlador;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Conexion() {
-	private String user = "pw";
-	private String pass = "pw";
+import org.mariadb.jdbc.MariaDbDataSource;
+
+public class Conexion {
+	private String user = "pw2";
+	private String pass = "root";
 	private String host = "192.168.1.238";
 	private String port = "3306";
 	private String database = "tablon";
-	private String classname = "com.mysql.jdbc.Driver";
-	private String url = "jdbc:mysql://" + host + ":" + port + "/" + dataBase;
+	private String url = "jdbc:mariadb://" + host + ":" + port + "/" + database;
 	private Connection conn;
 
 	public Conexion() {
 		try {
-			class.forname(classname);
+			Class.forName("org.mariadb.jdbc.Driver");
 			conn = DriverManager.getConnection(url, user, pass);
 		} catch (ClassNotFoundException e) {
-			System.err.println("ERROR: " + e);
+			System.err.println("CLASS ERROR: " + e);
 		} catch (SQLException e) {
-			System.err.println("ERROR: " + e);
+			System.err.println("SQL ERROR: " + e);
 		}
 	}
 
