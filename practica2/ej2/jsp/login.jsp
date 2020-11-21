@@ -6,9 +6,9 @@
 <body>
 	<div class="container">
 		<div class="form">
-			<form>
-				<label class="label" for="correo">Correo electrónico</label>
-				<input type="text" id="user" name="correo" placeholder="Correo electrónico" required>
+			<form action="${pageContext.request.contextPath}/login" method="post">
+				<label class="label" for="mail">Correo electrónico</label>
+				<input type="text" id="user" name="mail" placeholder="Correo electrónico" required>
 
 				<br/>
 
@@ -20,7 +20,6 @@
 				<div class="button">
 					<input id="boton" type="submit" value="Iniciar sesión">
 				</div>
-				
 			</form>
 		</div>
 	</div>

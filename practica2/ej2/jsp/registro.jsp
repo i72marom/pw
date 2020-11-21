@@ -4,15 +4,13 @@
 	<title>Registro</title>
 </head>
 <body>
-
-	<!-- CONTAINER -->
 	<div class="container">
 		<div class="divmes">
 			<p id="message" align="center" ><b>Registrate en la aplicaión</b></p>
 		</div>
 
 		<div class="form">
-			<form>
+			<form action="" method="post">
 				<label class="label" for="nombre">Nombre</label>
 				<input type="text" id="nombre" name="name" placeholder="Nombre" required>
 
