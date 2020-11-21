@@ -12,7 +12,7 @@ public class Conexion {
 	private String host = "192.168.1.238";
 	private String port = "3306";
 	private String database = "tablon";
-	private String url = "jdbc:mariadb://" + host + ":" + port + "/" + database;
+	private String url = "jdbc:mysql://" + host + ":" + port + "/" + database;
 	private Connection conn;
 
 	public Conexion() {
