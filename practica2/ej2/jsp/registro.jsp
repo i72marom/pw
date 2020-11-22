@@ -27,7 +27,7 @@
 				<br/>
 
 				<label class="label" for="correo">Correo electrónico</label>
-				<input type="text" id="correo" name="gmail" placeholder="Correo" required>
+				<input type="text" id="correo" name="mail" placeholder="Correo" required>
 
 				<br/>
 
