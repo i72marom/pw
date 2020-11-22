@@ -7,12 +7,12 @@ import java.sql.SQLException;
 import org.mariadb.jdbc.MariaDbDataSource;
 
 public class Conexion {
-	private String user = "pw2";
-	private String pass = "root";
-	private String host = "192.168.1.238";
-	private String port = "3306";
+	private String user     = "pw2";
+	private String pass     = "root";
+	private String host     = "192.168.1.238";
+	private String port     = "3306";
 	private String database = "tablon";
-	private String url = "jdbc:mysql://" + host + ":" + port + "/" + database;
+	private String url      = "jdbc:mysql://" + host + ":" + port + "/" + database;
 	private Connection conn;
 
 	public Conexion() {

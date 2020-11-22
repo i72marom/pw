@@ -15,11 +15,15 @@ public class InicioSesion extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
-		String mail = request.getParameter("mail");
-		String pass = request.getParameter("pass");
+		String nombre    = request.getParameter("name");
+		String primer_ap = request.getParameter("prim_ap");
+		String seg_ap    = request.getParameter("seg_ap");
+		String mail      = request.getParameter("mail");
+		String date      = request.getParameter("date");
+		String pass      = request.getParameter("pass");
 
 		Consultas c = new Consultas();
-		if (c.auth(mail, pass)) response.sendRedirect("index.html");
+		if (c.registrar(nombre, primer_ap, seg_ap, mail, date, pass)) response.sendRedirect("index.html");
 		else response.sendRedirect("login.jsp");
 	}
 }
