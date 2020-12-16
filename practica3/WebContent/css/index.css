@@ -86,7 +86,7 @@ body {
 	background: linear-gradient(to bottom, #105079 0%, #3e82ad 100%);
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number] {
 	width: 50%;
 	float: right;
 	padding: 5px 20px;
