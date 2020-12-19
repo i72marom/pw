@@ -12,8 +12,9 @@
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/index.css">
 
-	<!-- FAVICON -->
+	<!-- FAVICON 
 	<link rel="shortcut icon" type="image/png" href="./Media/favicon.ico"/>
+	-->
 
 	<!-- OTHERS -->
 	<meta name="description" content="Pagina principal de la aplicación. En ella se perimite elegir iniciar sesion o registrarse.">
@@ -26,8 +27,7 @@
 	<script type="text/javascript" src="js/index.js"></script> 
 </head>
 <body>
-	<!-- BOTONES PRINCIPALES -->
-	<!-- <div id="logo"><img class="logo-img" src="img/logo.png"></div> -->
+	<!-- PRESENTACION -->
 	<div id="logo">
 		<h1>Tablon de anuncios | Programación web</h1>
 		<p class="p">Javier Luna Carmona</p>
@@ -50,14 +50,14 @@
 		<form action="" method="post">
 			<div id="campo">
 			<label class="label" for="mail">Correo electrónico</label>
-				<input type="text" id="user" name="mail" placeholder="Correo electrónico" required>
+				<input type="email" id="user" name="mail" placeholder="Correo electrónico" required>
 			</div>
 
 			<br/>
 
 			<div id="campo">
 				<label class="label" for="pass">Contraseña</label>
-				<input type="password" id="pass" name="pass" required>
+				<input type="password" id="pass" name="pass">
 			</div>
 
 			<br>
@@ -94,28 +94,28 @@
 
 			<div id="campo">
 				<label class="label" for="correo">Correo electrónico</label>
-				<input type="text" id="correo" name="mail" placeholder="Correo" required>
+				<input type="email" id="correo" name="mail" placeholder="Correo" required>
 			</div>
 
 			<br/>
 
 			<div id="campo">
 				<label class="label" for="fechanac">Fecha de nacimiento</label>
-				<input type="text" id="fechanac" name="date" placeholder="aaaa/mm/dd" required>
+				<input type="date" id="fechanac" name="date" placeholder="aaaa/mm/dd" required>
 			</div>
 
 			<br/>
 
 			<div id="campo">
 				<label class="label" for="pass">Contraseña</label>
-				<input type="password" name="pass" required>
+				<input type="password" name="pass" required required minlength="8">
 			</div>
 
 			<br/>
 
 			<div id="campo">
 				<label class="label" for="pass-rep">Repetir contraseña</label>
-				<input type="password" name="pass-rep" required>
+				<input type="password" name="pass-rep" required required minlength="8">
 			</div>
 
 			<br/>

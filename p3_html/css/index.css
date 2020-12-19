@@ -69,8 +69,8 @@ body {
 }
 
 @keyframes example {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+	0% {opacity: 0;}
+	100% {opacity: 1;}
 }
 
 #boton {
@@ -86,7 +86,7 @@ body {
 	background: linear-gradient(to bottom, #105079 0%, #3e82ad 100%);
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email], input[type=date] {
 	width: 50%;
 	float: right;
 	padding: 5px 20px;
@@ -99,7 +99,7 @@ input[type=text], input[type=password] {
 	margin-right: 15%;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=date] {
 	box-shadow: 3px 3px 4px #606060;
 }
 

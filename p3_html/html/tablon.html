@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Inicio | Tablon de anuncios</title>
+
+	<!--
+		-Resumen: Pagina principal
+		-Autor: Manuel Jesus Mariscal Romero
+		-Autor: Javier Luna Carmona
+	-->
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../css/header.css">
+	<link rel="stylesheet" href="../css/tablon.css">
+
+	<!-- FAVICON 
+	<link rel="shortcut icon" type="image/png" href="./Media/favicon.ico"/>
+	-->
+
+	<!-- OTHERS -->
+	<meta charset="UTF-8">
+	<meta name="description" content="Pagina principaldentro de la aplicación. En ella se muestra el tablon de anuncios.">
+	<meta name="keywords" content="tablon, anuncios, anunico">
+	<meta name="author" content="Manuel Jesus Mariscal Romero">
+	<meta name="author" content="Javier Luna Carmona">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- JS -->
+	<script type="text/javascript" src="../js/tablon.js"></script> 
+</head>
+<body id="body">
+	<!-- HEADER -->
+	<div class="navbar">
+		<div class="content">
+			<a href="">Inicio</a>
+			<a href="">Crear Anuncio</a>
+			<a href="">Mis Anuncios</a>
+			<div class="desplegable">
+				<button class="boton">
+					<p>Nombre de usuario &#9660;</p>
+				</button>
+				<div class="cuenta">
+					<a href="">Configurar cuenta</a>
+					<a href="#" id="noche" onclick="modoNoche(noche)">Modo oscuro</a>
+					<a href="#" id="dia" onclick="modoNoche(dia)">Modo claro</a>
+					<a href="">Cerrar Sesión</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- ANUNCIO -->
+	<div class="tablon">
+		<div id="filtros">
+			<section class="webdesigntuts-workshop">
+				<form action="" method="">		    
+					<input type="search" placeholder="Search...">		    	
+					<button>Search</button>
+				</form>
+			</section>
+
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+
+			<h2>Filtro por temas</h2>
+			
+			<label class="container">Tema 1
+				<input type="checkbox" checked="checked">
+				<span class="checkmark"></span>
+			</label>
+			
+
+			<br/>
+			<br/>
+
+			<h2>Ordenar por</h2>
+			
+			<label class="container">Tema
+				<input type="checkbox" checked="checked">
+				<span class="checkmark"></span>
+			</label>
+
+			<label class="container">Autor
+				<input type="checkbox" checked="checked">
+				<span class="checkmark"></span>
+			</label>
+
+			<label class="container">Fecha
+				<input type="checkbox" checked="checked">
+				<span class="checkmark"></span>
+			</label>
+		</div>
+
+		<div id="anuncios">
+			<h1>Título</h1>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipiscing elit luctus a habitant, sagittis turpis laoreet pulvinar lobortis taciti ridiculus tincidunt etiam fames, habitasse rhoncus dictum per magnis bibendum vivamus praesent sem. Conubia himenaeos molestie augue cursus dignissim tortor convallis fusce penatibus, bibendum morbi euismod class ante aliquet nulla nostra dapibus sapien, sem fringilla quam velit varius at dis diam. Ad per lacinia dapibus himenaeos blandit cursus, tellus vel tortor vestibulum aliquet urna, sociis interdum eu quisque ac. 
+				
+			</p>
+			
+			<div id="desplegar">
+				<p>
+					Vulputate libero duis curabitur mi ullamcorper cubilia taciti, quam vestibulum senectus habitasse suspendisse neque etiam, cum pharetra vitae tempor potenti pellentesque. Accumsan metus ultrices auctor torquent erat orci tincidunt posuere porttitor semper commodo donec mattis, varius vel ornare quam fringilla cum vestibulum nam in sollicitudin pretium porta. Himenaeos suscipit bibendum natoque dis pellentesque mattis tincidunt curae, blandit ridiculus posuere litora purus pulvinar scelerisque sapien tempor, nisl est sociosqu netus nulla suspendisse dictum.
+				</p>
+
+				autor ·	fecha de publicacion · temas
+				<br/>
+				<br/>
+			</div>
+			
+			<a href="#" id="mas" onclick="verMas()">[Leer más]</a>
+			<a href="#" id="menos" onclick="verMenos()">[Ocultar]</a>
+
+			<br/>
+			<br/>
+		</div>
+	</div>
+</body>
+</html>

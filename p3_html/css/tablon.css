@@ -1,0 +1,224 @@
+body {
+	font-family: courier,arial,helvética;
+}
+
+.tablon {
+	width: 100%;
+}
+
+#filtros {
+	width: 15%;
+	height: 100vh;
+	box-shadow: 10px 0px 10px #666;
+	float: left;
+	padding-top: 30px;
+	color: #4d5255;
+	font-weight: 900;
+	padding-left: 3%;
+	background-color: #e5ebef;
+	position: fixed;
+	top: 64px;
+}
+
+#filtros ul {
+	padding-top: 15px;
+}
+
+#anuncios {
+	width: 70%;
+	margin-top: 150px;
+	margin-right: 5%;
+	float: right;
+	font-weight: 500;
+}
+
+#desplegar {
+	display: none;
+	animation: desplegar-anuncio;
+	animation-duration: 1s;
+}
+
+#menos {
+	display: none;
+	text-decoration: none;
+	color: #c26fe5;
+}
+
+#mas {
+	text-decoration: none;
+	color: #c26fe5;
+}
+
+@keyframes desplegar-anuncio {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+#dia {
+	display: none;
+}
+
+#filtros h2 {
+	font-size: 27px;
+	margin-left: -30px;
+}
+
+.container {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	color: #71787c;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 3px;
+  border-radius: 5px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #fff;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.webdesigntuts-workshop {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	top: 50px;
+	left: 30px;
+}
+
+.webdesigntuts-workshop input {	
+	background: linear-gradient(#333, #222);	
+	border: 1px solid #444;
+	border-radius: 5px 0 0 5px;
+	box-shadow: 0 2px 0 #000;
+	color: #888;
+	display: block;
+	float: left;
+	font-family: 'Cabin', helvetica, arial, sans-serif;
+	font-size: 13px;
+	font-weight: 400;
+	height: 42px;
+	margin: 0;
+	padding: 0 10px;
+	text-shadow: 0 -1px 0 #000;
+	width: 200px;
+}
+
+
+
+.webdesigntuts-workshop input:focus {
+	background: linear-gradient(#0e2331, #102838);
+	border-color: #105079;
+	box-shadow: 0 0 5px #256a96, inset 0 0 5px #6fb7e5, 0 2px 0 #000;
+	color: #efe;
+	outline: none;
+}
+
+.webdesigntuts-workshop button {
+	background: #222;
+	background: linear-gradient(#333, #222);
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-o-box-sizing: content-box;
+	-ms-box-sizing: content-box;
+	box-sizing: content-box;
+	border: 1px solid #444;
+	border-left-color: #000;
+	border-radius: 0 5px 5px 0;
+	box-shadow: 0 2px 0 #000;
+	color: #fff;
+	display: block;
+	float: left;
+	font-family: 'Cabin', helvetica, arial, sans-serif;
+	font-size: 13px;
+	font-weight: 400;
+	height: 40px;
+	line-height: 40px;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	text-shadow: 0 -1px 0 #000;
+	width: 80px;
+}	
+
+.webdesigntuts-workshop button:hover,
+.webdesigntuts-workshop button:focus {
+	background: #292929;
+	background: -webkit-linear-gradient(#393939, #292929);	
+	background: -moz-linear-gradient(#393939, #292929);	
+	background: -o-linear-gradient(#393939, #292929);	
+	background: -ms-linear-gradient(#393939, #292929);	
+	background: linear-gradient(#393939, #292929);
+	color: #1081ca;
+	outline: none;
+}
+
+.webdesigntuts-workshop button:active {
+	background: #292929;
+	background: -webkit-linear-gradient(#393939, #292929);
+	background: -moz-linear-gradient(#393939, #292929);
+	background: -o-linear-gradient(#393939, #292929);
+	background: -ms-linear-gradient(#393939, #292929);
+	background: linear-gradient(#393939, #292929);
+	box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
+	top: 1px;
+}
+
+/*
+		border-color: #6f6;
+		box-shadow: 0 0 20px rgba(0,255,0,.6), inset 0 0 10px rgba(0,255,0,.4), 0 2px 0 #000;
+*/
