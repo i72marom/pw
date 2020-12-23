@@ -40,7 +40,7 @@ public class LoginAction extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.sendRedirect(request.getContextPath() + "/index.jsp");
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class LoginAction extends HttpServlet {
 				
 				
 				
-				
-				response.sendRedirect("mvc/view/boardView.jsp"); 
+				response.sendRedirect(request.getContextPath()+"/Tablon");
+				//request.getRequestDispatcher("/Tablon").forward(request, response);
 			}
 			else
 			{

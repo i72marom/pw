@@ -133,6 +133,7 @@ input[type=submit]:hover {
 
 .label {
 	float: left;
+	text-shadow: 1px 1px 0 #aaa;
 	font-size: 13px;
 	padding: 5px 20px;
 	margin: 10px 0;
@@ -159,6 +160,10 @@ input[type=submit]:hover {
 	margin-top: -10px;
 }
 
+.logo-img {
+	width: 100%;
+}
+
 @media (max-width: 620px) {
 
 	#login-form, #registro-form {
@@ -167,18 +172,8 @@ input[type=submit]:hover {
 		margin-right: 5%;
 	}
 
-	.label {
-		width: 100%;
-	}
-
-	input[type=text], input[type=password] {
-		float: left;
-		width: 100%;
-	}
-
-	#boton {
-		margin-left: 1%; 
-		width: 98%;
+	form input {
+		width: 90%;
 	}
 
 }

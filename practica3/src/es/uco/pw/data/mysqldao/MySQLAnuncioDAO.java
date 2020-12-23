@@ -98,7 +98,7 @@ public class MySQLAnuncioDAO implements AnuncioDAO{
 			stat.setLong(1, a.getAutor().getId());
 			stat.setString(2, a.getTitulo());
 			stat.setString(3, a.getCuerpo());
-			stat.setDate(4, new Date(a.getFecha().getTime()));
+			stat.setDate(4, java.sql.Date.valueOf(LocalDate.now()));
 			stat.setString(5, a.getEstado().name());
 			stat.setString(6, a.getTipo().name());
 			
@@ -464,6 +464,8 @@ public class MySQLAnuncioDAO implements AnuncioDAO{
 	/**
 	 * Función que obtiene todos los anuncios
 	 */
+	
+	
 	public ArrayList<Anuncio> obtenerTodos() throws DAOException {
 		PreparedStatement stat = null;
 		ResultSet rs = null;
@@ -472,6 +474,7 @@ public class MySQLAnuncioDAO implements AnuncioDAO{
 		ArrayList<Anuncio> a = new ArrayList<Anuncio>();
 		try {
 			stat = conn.prepareStatement(obtenerAllAnunciosQuery);
+
 			
 			
 			rs = stat.executeQuery();
@@ -514,7 +517,7 @@ public class MySQLAnuncioDAO implements AnuncioDAO{
 		Long idAutor = a.getLong("id_autor_fk");
 		String titulo = a.getString("titulo");
 		String cuerpo = a.getString("cuerpo");
-		Date fecha = a.getDate("fecha");
+		LocalDate fecha = a.getDate("fecha").toLocalDate();
 		Estado estado_ = null;
 		String estado = a.getString("estado");
 		if(estado.equals("publicado"))
@@ -569,7 +572,7 @@ public class MySQLAnuncioDAO implements AnuncioDAO{
 		return anuncioDevolver;
 	}
 	
-	private AnuncioTematico devolverTematico(Long idAutor, String titulo, String cuerpo, Date fecha, Estado estado, Tipo tipo, Long idAnuncio, Contacto autor) throws DAOException
+	private AnuncioTematico devolverTematico(Long idAutor, String titulo, String cuerpo, LocalDate fecha, Estado estado, Tipo tipo, Long idAnuncio, Contacto autor) throws DAOException
 	{
 		AnuncioTematico a = (AnuncioTematico) anuncio.creaAnuncioTematico();
 		
@@ -591,7 +594,7 @@ public class MySQLAnuncioDAO implements AnuncioDAO{
 		
 		return a;
 	}
-	private AnuncioGeneral devolverGeneral(Long idAutor, String titulo, String cuerpo, Date fecha, Estado estado, Tipo tipo, Long idAnuncio, Contacto autor) throws DAOException
+	private AnuncioGeneral devolverGeneral(Long idAutor, String titulo, String cuerpo, LocalDate fecha, Estado estado, Tipo tipo, Long idAnuncio, Contacto autor) throws DAOException
 	{
 		AnuncioGeneral a = (AnuncioGeneral) anuncio.creaAnuncioGeneral();
 		
@@ -606,7 +609,7 @@ public class MySQLAnuncioDAO implements AnuncioDAO{
 		
 		return a;
 	}
-	private AnuncioIndividualizado devolverIndividualizado(Long idAutor, String titulo, String cuerpo, Date fecha, Estado estado, Tipo tipo, Long idAnuncio, Contacto autor) throws DAOException
+	private AnuncioIndividualizado devolverIndividualizado(Long idAutor, String titulo, String cuerpo, LocalDate fecha, Estado estado, Tipo tipo, Long idAnuncio, Contacto autor) throws DAOException
 	{
 		AnuncioIndividualizado a = (AnuncioIndividualizado) anuncio.creaAnuncioIndividualizado();
 		a.setTitulo(titulo);
@@ -626,7 +629,7 @@ public class MySQLAnuncioDAO implements AnuncioDAO{
 		
 		return a;
 	}
-	private AnuncioFlash devolverFlash(Long idAutor, String titulo, String cuerpo, Date fecha, Estado estado, Tipo tipo, Long idAnuncio, Contacto autor) throws DAOException
+	private AnuncioFlash devolverFlash(Long idAutor, String titulo, String cuerpo, LocalDate fecha, Estado estado, Tipo tipo, Long idAnuncio, Contacto autor) throws DAOException
 	{
 		AnuncioFlash a = (AnuncioFlash) anuncio.creaAnuncioFlash();
 		

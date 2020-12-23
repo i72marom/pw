@@ -10,6 +10,7 @@ import es.uco.pw.business.tipos.Tipo;
 import es.uco.pw.data.dao.DAOException;
 import es.uco.pw.data.mysqldao.MySQLDAOManager;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -23,6 +24,9 @@ import java.util.ArrayList;
 public class GestorAnuncios {
 	//private ArrayList<Anuncio> tablon_ = new ArrayList();
 	
+	
+	private static GestorAnuncios instance = null;
+	
 	String[] tags_disponibles_;
 
 	
@@ -31,7 +35,16 @@ public class GestorAnuncios {
 	
 	Generador anuncio = new Generador();
 	 
-	public GestorAnuncios() {
+	private GestorAnuncios() {
+	}
+	
+	public static GestorAnuncios getInstance()
+	{
+		if(instance == null) {
+			instance = new GestorAnuncios();
+		}
+		return instance;
+			
 	}
 	
 	////////////////////////////////////////////////FUNCIONES DE CARGA Y GUARDA DEL TABLON////////////////////////////////////////////////////////////
@@ -55,7 +68,7 @@ public class GestorAnuncios {
 		String titulo = "", contenido = "";
 		String publicar = "";
 		Estado estadoAnuncio = Estado.editado;
-		Date date = new Date();
+		LocalDate date = LocalDate.now();
 		System.out.println("Que tipo de anuncio quieres crear : ");
 		System.out.println("1- General");
 		System.out.println("2- Flash");
@@ -469,8 +482,114 @@ public class GestorAnuncios {
 		
 	}
 	
+	public boolean coincidenTemas(ArrayList<String> temasAnuncio, ArrayList<String> temasUser)
+	{
+		
+		boolean resultado = false;
+		
+		for(int i = 0;i<temasAnuncio.size() && !resultado;i++)
+		{
+			for(int o = 0;o<temasUser.size() && !resultado;o++)
+			{
+				if(temasAnuncio.get(i).equals(temasUser.get(o)))
+				{
+					resultado = true;
+				}
+			}
+		}
+		
+		return resultado;
+		
+	}
+	public boolean esDestinatario(ArrayList<Long> destinatarios, Long idUser)
+	{
+		boolean resultado = false;
+		
+		for(int i = 0;i<destinatarios.size() && !resultado;i++)
+		{
+			if(destinatarios.get(i) == idUser)
+				resultado = true;
+		}
+		
+		return resultado;
+	}
 	
-	
+	public ArrayList<Anuncio> anadirAnunciosAMostrar(ArrayList<Anuncio> anuncios, Long idUser) throws ClassNotFoundException, SQLException, DAOException
+	{
+		
+		ArrayList<Anuncio> anunciosAMostrar = new ArrayList<Anuncio>();
+		
+		for(int i =  0;i<anuncios.size();i++)
+		{
+			
+			Anuncio a = anuncios.get(i);
+			
+			if(anuncios.get(i).getTipo() == Tipo.flash)
+			{
+				AnuncioFlash b = (AnuncioFlash) a;
+				
+				LocalDate fechaActual = LocalDate.now();
+				LocalDate fechaInicioAnuncio = b.getFechaInicio();
+				LocalDate fechaFinAnuncio = b.getFechaFin();
+				
+				if(fechaActual.isAfter(fechaInicioAnuncio) && fechaActual.isBefore(fechaFinAnuncio))
+				{
+					anunciosAMostrar.add(a);
+				}
+				
+				
+				
+				
+			}
+			else if(anuncios.get(i).getTipo() == Tipo.tematico)
+			{
+				AnuncioTematico b = (AnuncioTematico) a;
+				
+				MySQLDAOManager manager = new MySQLDAOManager();
+				
+				
+				
+				
+				ArrayList<String> temasAnuncio = b.getTemas();
+				
+				Contacto userLogged = manager.getContactoDAO().obtener(idUser);
+				
+				ArrayList<String> temasUserLogged = userLogged.getTags();
+				
+				
+				
+				if(coincidenTemas(temasAnuncio, temasUserLogged))
+				{
+					anunciosAMostrar.add(a);
+				}
+				
+				
+				
+			}
+			else if(anuncios.get(i).getTipo() == Tipo.individualizado)
+			{
+				AnuncioIndividualizado b = (AnuncioIndividualizado) a;
+				ArrayList<Long> destinatarios = b.getDestinatarios();
+				
+				
+				if(esDestinatario(destinatarios, idUser))
+				{
+					anunciosAMostrar.add(a);
+				}
+				
+				
+			}
+			else
+			{
+				anunciosAMostrar.add(a);
+			}
+		}
+		
+		System.out.println(anunciosAMostrar);
+		
+		return anunciosAMostrar;
+
+	}
 	
 	//////////////////////////////////FUNCIONES PRIVADAS///////////////////////////////////////////////////////
 	
@@ -529,7 +648,7 @@ public class GestorAnuncios {
 	private void editarAnuncio(MySQLDAOManager manager, Long id, Contacto autor, GestorContactos gestor) throws DAOException{
 		
 		String titulo, contenido;
-		Date date = new Date();
+		LocalDate date = LocalDate.now();
 		
 		System.out.println("ANUNCIO A MODIFICAR : ");
 		System.out.println(manager.getAnuncioDAO().obtener(id).toString());
@@ -713,7 +832,7 @@ public class GestorAnuncios {
 
 
 	
-	private ArrayList<Anuncio> buscarPorFecha(MySQLDAOManager manager, Date fecha) throws DAOException {
+	private ArrayList<Anuncio> buscarPorFecha(MySQLDAOManager manager, LocalDate fecha) throws DAOException {
 		ArrayList<Anuncio> list = new ArrayList();
 		ArrayList<Anuncio> anuncios = manager.getAnuncioDAO().obtenerTodos();
 		for (Anuncio a : anuncios) {
