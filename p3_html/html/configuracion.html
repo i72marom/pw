@@ -12,9 +12,14 @@
 	<!-- CSS -->
 	<link rel="stylesheet" href="../css/header.css">
 	<link rel="stylesheet" href="../css/tablon.css">
+	<link rel="stylesheet" href="../css/checkbox.css">
+	<link rel="stylesheet" href="../css/buscador.css">
+	<link rel="stylesheet" href="../css/menu_lateral.css">
+	<link rel="stylesheet" href="../css/crear_anuncio.css">
 
 	<!-- FAVICON -->
 	<link rel="shortcut icon" type="image/png" href="../img/logo.png"/>
+	
 
 	<!-- OTHERS -->
 	<meta charset="UTF-8">
@@ -23,6 +28,9 @@
 	<meta name="author" content="Manuel Jesus Mariscal Romero">
 	<meta name="author" content="Javier Luna Carmona">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- JS -->
+	<script type="text/javascript" src="../js/conf.js"></script>
 </head>
 <body id="body">
 	<!-- HEADER -->
@@ -43,6 +51,136 @@
 		</div>
 	</div>
 
-	
+		
+	<!-- FILTROS -->
+	<div id="filtros">
+		<h2>Configuración de la cuenta</h2>
+
+		<a class="checkbox-class create" href="#" onclick="conf(info);">
+			Información personal
+		</a>
+		
+		<a class="checkbox-class create" href="#" onclick="conf(contacto);">
+			Contacto
+		</a>
+		
+		<a class="checkbox-class create" href="#" onclick="conf(tema);">
+			Intereses
+		</a>
+		
+		<a class="checkbox-class create" href="#" onclick="conf(pass);">
+			Seguridad
+		</a>
+	</div>
+
+	<div id="tablon">
+
+		<!-- INFORMACION PERSONAL -->
+		<form action="" method="" id="info">		    
+			<div class="row">
+				<div class="col-1">
+					<label for="nombre">Nombre</label>
+				</div>
+				<div class="col-2">
+					<input type="text" id="nombre" name="nombre" required value="Nombre de usuario">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-1">
+					<label for="prim_ap">Primer apellido</label>
+				</div>
+				<div class="col-2">
+					<input type="text" id="prim_ap" name="prim_ap" value="Primer apellido" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-1">
+					<label for="seg_ap">Segundo apellido</label>
+				</div>
+				<div class="col-2">
+					<input type="text" id="seg_ap" name="seg_ap" value="Segundo apellido" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-1">
+					<label for="date">Fecha de nacimiento</label>
+				</div>
+				<div class="col-2">
+					<input type="date" id="date" name="date" disabled="">
+					<input type="submit" value="Guardar">
+				</div>
+			</div>
+		</form>
+
+		<!-- CONTACTO -->
+		<div id="contacto">
+			<div class="row">
+				<div class="col-1">
+					<label for="nombre">E-mail</label>
+				</div>
+				<div class="col-2">
+					<input type="text" id="nombre" name="nombre" disabled="" value="usuario@mail.com">
+				</div>
+			</div>
+		</div>
+
+		<!-- INTERESES -->
+		<form action="" method="" id="tema">		    
+			<div class="row">
+				<div class="col-1">
+					<label for="tema">Tema</label>
+				</div>
+				<div class="col-2">
+					<label class="checkbox-class cb">Tema 1
+						<input type="checkbox" name="tema">
+						<span class="checkmark cm"></span>
+					</label>
+					<label class="checkbox-class cb">Tema 2
+						<input type="checkbox" name="tema">
+						<span class="checkmark cm"></span>
+					</label>
+					<label class="checkbox-class cb">Tema 3
+						<input type="checkbox" name="tema">
+						<span class="checkmark cm"></span>
+					</label>
+					<input type="submit" value="Guardar">
+				</div>
+			</div>
+		</form>
+
+		<!-- INFORMACION PERSONAL -->
+		<form action="" method="" id="pass">		    
+			<div class="row">
+				<div class="col-1">
+					<label for="password">Contraseña actual</label>
+				</div>
+				<div class="col-2">
+					<input type="password" id="password" name="password" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-1">
+					<label for="new_pass">Nueva contraseña</label>
+				</div>
+				<div class="col-2">
+					<input type="password" id="new_pass" name="new_pass" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-1">
+					<label for="rep_new_pass">Repetir contraseña</label>
+				</div>
+				<div class="col-2">
+					<input type="password" id="rep_new_pass" name="rep_new_pass" required>
+					<input type="submit" value="Guardar">
+				</div>
+			</div>
+		</form>
+	</div>
 </body>
 </html>

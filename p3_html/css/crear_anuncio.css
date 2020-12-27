@@ -29,7 +29,7 @@ input[type=submit]:hover {
 	box-shadow: 3px 3px 4px #606060;
 }
 
-input[type=text], select, textarea {
+input[type=text], input[type=date], input[type=password], select, textarea {
 	width: 78%;
 	font-size: 20px;
 	margin-left: 15%;
@@ -79,6 +79,8 @@ label {
 
 .cb { padding-left: 190px; color: #4f5558; }
 .cm { border: .5px solid #4f5558; margin: 10px 0 0 150px; }
+
+#info, #contacto, #tema, #pass { display: none; }
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
