@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Inicio | Tablon de anuncios</title>
+	<title>Editar anuncio</title>
 
 	<!--
 		-Resumen: Pagina principal
@@ -12,10 +12,14 @@
 	<!-- CSS -->
 	<link rel="stylesheet" href="../css/header.css">
 	<link rel="stylesheet" href="../css/tablon.css">
+	<link rel="stylesheet" href="../css/checkbox.css">
+	<link rel="stylesheet" href="../css/buscador.css">
+	<link rel="stylesheet" href="../css/menu_lateral.css">
+	<link rel="stylesheet" href="../css/crear_anuncio.css">
 
-	<!-- FAVICON 
-	<link rel="shortcut icon" type="image/png" href="./Media/favicon.ico"/>
-	-->
+	<!-- FAVICON -->
+	<link rel="shortcut icon" type="image/png" href="../img/logo.png"/>
+	
 
 	<!-- OTHERS -->
 	<meta charset="UTF-8">
@@ -44,6 +48,68 @@
 		</div>
 	</div>
 
-	
+		
+	<!-- FILTROS -->
+	<div id="filtros">
+		<h2>Informacion del anuncio</h2>
+
+		<label class="checkbox-class cursor">Tipo: General</label>
+		<label class="checkbox-class cursor">Estado: Publicado</label>
+		<label class="checkbox-class cursor">Ceado el: dd/mm/aaaa</label>
+	</div>
+
+	<!-- CUERPO DEL FORMULARIO -->
+	<form action="" method="">		    
+		<div id="tablon">
+			<div class="row">
+				<div class="col-1">
+					<label for="titulo">Título</label>
+				</div>
+				<div class="col-2">
+					<input type="text" id="titulo" name="titulo" placeholder="Título"required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-1">
+					<label for="fecha_fin">Fecha de cierre</label>
+				</div>
+				<div class="col-2">
+					<input type="text" id="fecha_fin" name="fecha_fin" placeholder="aaaa/mm/dd"required>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-1">
+					<label for="tema">Tema</label>
+				</div>
+				<div class="col-2">
+					<label class="checkbox-class cb">Tema 1
+						<input type="checkbox" name="search">
+						<span class="checkmark cm"></span>
+					</label>
+					<label class="checkbox-class cb">Tema 2
+						<input type="checkbox" name="search">
+						<span class="checkmark cm"></span>
+					</label>
+					<label class="checkbox-class cb">Tema 3
+						<input type="checkbox" name="search">
+						<span class="checkmark cm"></span>
+					</label>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-1">
+					<label for="contenido">Anuncio</label>
+				</div>
+				
+				<div class="col-2">
+					<textarea id="contenido" name="contenido" placeholder="Escribe tu anuncio..." required></textarea>
+					<input type="submit" value="Publicar">
+				</div>
+			</div>
+		</div>
+	</form>
 </body>
 </html>

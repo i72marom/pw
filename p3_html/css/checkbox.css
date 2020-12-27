@@ -1,0 +1,94 @@
+.checkbox-class {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 20px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	color: #899296;
+	padding-left: 80px;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-class input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark, .checkmark-radio {
+	margin-left: 50px;
+	position: absolute;
+	top: 3px;
+	left: 0;
+	height: 18px;
+	width: 18px;
+	background-color: #fff;
+}
+
+.checkmark-radio { border-radius: 50%; }
+.checkmark { border-radius: 5px; }
+
+/* On mouse-over, add a grey background color */
+.checkbox-class:hover input ~ .checkmark,
+.checkbox-class:hover input ~ .checkmark-radio {
+	background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-class input:checked ~ .checkmark,
+.checkbox-class input:checked ~ .checkmark-radio {
+ 	background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after, .checkmark-radio:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-class input:checked ~ .checkmark:after,
+.checkbox-class input:checked ~ .checkmark-radio:after {
+ 	display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-class .checkmark:after {
+	left: 5px;
+	top: 1px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.checkbox-class .checkmark-radio:after {
+ 	top: 4px;
+	left: 4px;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: white;
+}
+
+.create {
+	border-bottom: .5px solid #82878d;
+	border-top: .5px solid #82878d;
+	padding: 30px;
+	padding-left: 50px;
+	margin-bottom: 0;
+}
+
+.create:hover, .create input:checked  { background: linear-gradient(to bottom, #242627 0%, #54585c 100%); }

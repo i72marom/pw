@@ -11,7 +11,7 @@ body {
 }
 
 .navbar, .cuenta {
-	background: linear-gradient(to bottom, #105079 0%, #3e82ad 100%);
+	background: linear-gradient(to bottom, #0c3a58 0%, #3695d1 100%);
 }
 
 .navbar a {
@@ -22,6 +22,7 @@ body {
 	text-align: center;
 	padding: 20px;
 	text-decoration: none;
+	border-radius: 5px;
 }
 
 .boton p {
@@ -42,6 +43,7 @@ body {
 	border: none;
 	outline: none;
 	margin: 0;
+	border-radius: 5px;
 }
 
 .navbar .responsive { 
@@ -55,7 +57,7 @@ body {
 }
 
 .navbar a:hover, .desplegable:hover .boton, .navbar .responsive:hover {
-	background: linear-gradient(to bottom, #0c3a58 0%, #2e6080 100%);
+	background: linear-gradient(to bottom, #072c45 0%, #3084ba 100%);
 }
 
 .desplegable a:hover {

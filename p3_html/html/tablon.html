@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Inicio | Tablon de anuncios</title>
+	<title>Tablon de anuncios</title>
 
 	<!--
 		-Resumen: Pagina principal
@@ -12,10 +12,12 @@
 	<!-- CSS -->
 	<link rel="stylesheet" href="../css/header.css">
 	<link rel="stylesheet" href="../css/tablon.css">
+	<link rel="stylesheet" href="../css/checkbox.css">
+	<link rel="stylesheet" href="../css/buscador.css">
+	<link rel="stylesheet" href="../css/menu_lateral.css">
 
-	<!-- FAVICON 
-	<link rel="shortcut icon" type="image/png" href="./Media/favicon.ico"/>
-	-->
+	<!-- FAVICON -->
+	<link rel="shortcut icon" type="image/png" href="../img/logo.png"/>
 
 	<!-- OTHERS -->
 	<meta charset="UTF-8">
@@ -25,7 +27,7 @@
 	<meta name="author" content="Javier Luna Carmona">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body id="body">
+<body>
 	<!-- HEADER -->
 	<div class="navbar">
 		<div class="content">
@@ -44,97 +46,96 @@
 		</div>
 	</div>
 
+	<!-- FILTROS -->
+	<div id="filtros">
+		<form action="" method="">		    
+			<section class="buscador">
+				<input type="search" placeholder="Buscar...">		    	
+				<button>Buscar</button>
+			</section>
+
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+
+			<label class="checkbox-class">Autor
+			  <input type="radio" name="search">
+			  <span class="checkmark-radio"></span>
+			</label>
+			<label class="checkbox-class">Tema
+			  <input type="radio" name="search">
+			  <span class="checkmark-radio"></span>
+			</label>
+			<label class="checkbox-class">Fecha
+			  <input type="radio" name="search">
+			  <span class="checkmark-radio"></span>
+			</label>
+
+			<br/>
+			<br/>
+
+			<h2>Filtro por temas</h2>
+			
+			<label class="checkbox-class">Tema 1
+				<input type="checkbox">
+				<span class="checkmark"></span>
+			</label>
+
+			<label class="checkbox-class">Tema 2
+				<input type="checkbox">
+				<span class="checkmark"></span>
+			</label>
+
+			<label class="checkbox-class">Tema 3
+				<input type="checkbox">
+				<span class="checkmark"></span>
+			</label>
+			
+
+			<br/>
+			<br/>
+
+			<h2>Ordenar por</h2>
+			
+			<label class="checkbox-class">Autor
+				<input type="radio" checked="checked" name="order">
+				<span class="checkmark-radio"></span>
+			</label>
+			<label class="checkbox-class">Tema
+				<input type="radio" name="order">
+				<span class="checkmark-radio"></span>
+			</label>
+			<label class="checkbox-class">Fecha
+				<input type="radio" name="order">
+				<span class="checkmark-radio"></span>
+			</label>
+		</form>
+	</div>
+
 	<!-- ANUNCIO -->
-	<div class="tablon">
-		<div id="filtros">
-			<form action="" method="">		    
-				<section class="buscador">
-					<input type="search" placeholder="Buscar...">		    	
-					<button>Buscar</button>
-				</section>
-
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-
-				<label class="checkbox-class">Autor
-				  <input type="radio" name="search">
-				  <span class="checkmark-radio"></span>
-				</label>
-				<label class="checkbox-class">Tema
-				  <input type="radio" name="search">
-				  <span class="checkmark-radio"></span>
-				</label>
-				<label class="checkbox-class">Fecha
-				  <input type="radio" name="search">
-				  <span class="checkmark-radio"></span>
-				</label>
-
-				<br/>
-				<br/>
-
-				<h2>Filtro por temas</h2>
+	<div id="tablon">
+		<div class="anuncio-class">
+			<h1>Título</h1>
+			<p class="fecha">20 de Diciembre de 2020 - <span class="autor">Nombre autor</span></p>
+			<p class="text">
+				Lorem ipsum dolor sit amet consectetur adipiscing elit luctus a habitant, sagittis turpis laoreet pulvinar lobortis taciti ridiculus tincidunt etiam fames, habitasse rhoncus dictum per magnis bibendum vivamus praesent sem. Conubia himenaeos molestie augue cursus dignissim tortor convallis fusce penatibus, bibendum morbi euismod class ante aliquet nulla nostra dapibus sapien, sem fringilla quam velit varius at dis diam. Ad per lacinia dapibus himenaeos blandit cursus, tellus vel tortor vestibulum aliquet urna, sociis interdum eu quisque ac. 
 				
-				<label class="checkbox-class">Tema 1
-					<input type="checkbox">
-					<span class="checkmark"></span>
-				</label>
-
-				<label class="checkbox-class">Tema 2
-					<input type="checkbox">
-					<span class="checkmark"></span>
-				</label>
-
-				<label class="checkbox-class">Tema 3
-					<input type="checkbox">
-					<span class="checkmark"></span>
-				</label>
-				
-
-				<br/>
-				<br/>
-
-				<h2>Ordenar por</h2>
-				
-				<label class="checkbox-class">Autor
-					<input type="radio" checked="checked" name="order">
-					<span class="checkmark-radio"></span>
-				</label>
-				<label class="checkbox-class">Tema
-					<input type="radio" name="order">
-					<span class="checkmark-radio"></span>
-				</label>
-				<label class="checkbox-class">Fecha
-					<input type="radio" name="order">
-					<span class="checkmark-radio"></span>
-				</label>
-			</form>
-		</div>
-
-		<div id="anuncios">
-			<div class="anuncio-class">
-				<h1>Título</h1>
-				<p class="fecha">20 de Diciembre de 2020 - <span class="autor">Nombre autor</span></p>
-				<p class="text">
-					Lorem ipsum dolor sit amet consectetur adipiscing elit luctus a habitant, sagittis turpis laoreet pulvinar lobortis taciti ridiculus tincidunt etiam fames, habitasse rhoncus dictum per magnis bibendum vivamus praesent sem. Conubia himenaeos molestie augue cursus dignissim tortor convallis fusce penatibus, bibendum morbi euismod class ante aliquet nulla nostra dapibus sapien, sem fringilla quam velit varius at dis diam. Ad per lacinia dapibus himenaeos blandit cursus, tellus vel tortor vestibulum aliquet urna, sociis interdum eu quisque ac. 
-					
-				</p>
-				
-				<p id="desplegar" class="text">
-					Vulputate libero duis curabitur mi ullamcorper cubilia taciti, quam vestibulum senectus habitasse suspendisse neque etiam, cum pharetra vitae tempor potenti pellentesque. Accumsan metus ultrices auctor torquent erat orci tincidunt posuere porttitor semper commodo donec mattis, varius vel ornare quam fringilla cum vestibulum nam in sollicitudin pretium porta. Himenaeos suscipit bibendum natoque dis pellentesque mattis tincidunt curae, blandit ridiculus posuere litora purus pulvinar scelerisque sapien tempor, nisl est sociosqu netus nulla suspendisse dictum.
-				</p>
-
-				<br/>
-				<br/>
-				
-				<a href="#" id="mas" class="enlaces" onclick="verMas()">[Leer más]</a>
-				<a href="#" id="menos" class="enlaces" onclick="verMenos()">[Ocultar]</a>
-			</div>
+			</p>
+			
+			<p id="desplegar" class="text">
+				Vulputate libero duis curabitur mi ullamcorper cubilia taciti, quam vestibulum senectus habitasse suspendisse neque etiam, cum pharetra vitae tempor potenti pellentesque. Accumsan metus ultrices auctor torquent erat orci tincidunt posuere porttitor semper commodo donec mattis, varius vel ornare quam fringilla cum vestibulum nam in sollicitudin pretium porta. Himenaeos suscipit bibendum natoque dis pellentesque mattis tincidunt curae, blandit ridiculus posuere litora purus pulvinar scelerisque sapien tempor, nisl est sociosqu netus nulla suspendisse dictum.
+			</p>
 
 			<br/>
 			<br/>
+			
+			<a href="#" id="mas" class="enlaces" onclick="verMas()">[Leer más]</a>
+			<a href="#" id="menos" class="enlaces" onclick="verMenos()">[Ocultar]</a>
 		</div>
+
+		<br/>
+		<br/>
 	</div>
 </body>
 </html>
