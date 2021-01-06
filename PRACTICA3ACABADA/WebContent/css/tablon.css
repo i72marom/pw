@@ -1,0 +1,97 @@
+body {
+	font-family: arial,courier;
+}
+
+.body {
+	width: 100%;
+}
+
+h1 {
+	font-weight: 1000;
+	font-size: 45px;
+}
+
+
+.fecha {
+	color: #505558;
+	font-size: 17px;
+}
+
+.text {
+	color: #6b7276;
+	font-size: 22px;
+}
+
+#filtros ul {
+	padding-top: 15px;
+}
+
+#tablon {
+	width: 65%;
+	margin-top: 150px;
+	float: right;
+	font-weight: 500;
+	margin-right: 100px;
+}
+
+#desplegar {
+	display: none;
+	animation: desplegar-anuncio;
+	animation-duration: 1s;
+}
+
+.menos {
+	display: none;
+}
+
+.enlaces, .autor, .archivado, .publicado, .editado, .espera {
+	text-decoration: none;
+	color: #e56e2c;
+	font-weight: 800;
+	font-size: 20px;
+}
+
+.archivado { color: #b52929; }
+.publicado { color: #29b544; }
+.editado { color: #294bb5; }
+.espera { color: #b2b529; }
+
+.archivado-class { border-left: 5px solid #b52929; padding: 10px 50px 10px 50px; }
+.publicado-class { border-left: 5px solid #29b544; padding: 10px 50px 10px 50px; }
+.editado-class { border-left: 5px solid #294bb5; padding: 10px 50px 10px 50px; }
+.espera-class { border-left: 5px solid #b2b529; padding: 10px 50px 10px 50px; }
+.anuncio-class { border-left: 5px solid #e56e2c; padding: 10px 50px 10px 50px; }
+
+.botonesMisAnuncios{
+	width:120px;
+	height:30px;
+	color: #f0f0f0;
+	padding-left: 10px;
+	border: none;
+	border-radius: 4px;
+	box-shadow: 2px 2px 5px #666;
+	text-decoration: none;
+	font-size: 14px;
+	background: linear-gradient(to bottom, #105079 0%, #3e82ad 100%);
+}
+.botonesMisAnuncios:hover{
+	background: linear-gradient(to bottom, #0c3a58 0%, #2e6080 100%);
+	box-shadow: 3px 3px 4px #606060;
+}
+
+@keyframes desplegar-anuncio {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+#dia {
+	display: none;
+}
+
+
+
+
+.anuncio-class {
+	width: 95%;
+
+}

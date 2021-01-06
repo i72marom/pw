@@ -1,0 +1,88 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>es.uco.pw.Servlet.LoginAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Registro</servlet-name>
+        <servlet-class>es.uco.pw.Servlet.RegistroServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Registro</servlet-name>
+        <url-pattern>/Index</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Configurar</servlet-name>
+        <servlet-class>es.uco.pw.Servlet.ConfigurarCuenta</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Configurar</servlet-name>
+        <url-pattern>/Cuenta</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CrearAnuncio</servlet-name>
+        <servlet-class>es.uco.pw.Servlet.CrearAnuncioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CrearAnuncio</servlet-name>
+        <url-pattern>/Crear</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>MisAnuncios</servlet-name>
+        <servlet-class>es.uco.pw.Servlet.MisAnunciosServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MisAnuncios</servlet-name>
+        <url-pattern>/MisAnuncios</url-pattern>
+    </servlet-mapping>
+ 
+    <servlet>
+        <servlet-name>Tablon</servlet-name>
+        <servlet-class>es.uco.pw.Servlet.TablonServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Tablon</servlet-name>
+        <url-pattern>/Tablon</url-pattern>
+    </servlet-mapping>
+ 
+    <servlet>
+        <servlet-name>Eliminar</servlet-name>
+        <servlet-class>es.uco.pw.Servlet.EliminarAnuncioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Eliminar</servlet-name>
+        <url-pattern>/EliminarAnuncio</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Editar</servlet-name>
+        <servlet-class>es.uco.pw.Servlet.EditarAnuncioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Editar</servlet-name>
+        <url-pattern>/Editar</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>Dashboard</servlet-name>
+        <servlet-class>es.uco.pw.Servlet.AdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Dashboard</servlet-name>
+        <url-pattern>/Admin</url-pattern>
+    </servlet-mapping>
+    
+    
+</web-app>
