@@ -1,207 +1,149 @@
-/**
- * 
- */
-
-
 'use strict'
 
-//VARIABLES GLOBALES
-
+// Variables globales
 let tipo;
-let radioGeneral = document.getElementById("radioGeneral");
-let radioIndividualizado = document.getElementById("radioIndividualizado");
-let radioTematico = document.getElementById("radioTematico");
-let radioFlash = document.getElementById("radioFlash");
 let botonesDestinatariosBoolean;
+let radioGeneral         = document.getElementById("radioGeneral");
+let radioIndividualizado = document.getElementById("radioIndividualizado");
+let radioTematico        = document.getElementById("radioTematico");
+let radioFlash           = document.getElementById("radioFlash");
 
-//QUITA LOS CAMPOS DEL FORMULARIO DE OTROS TIPOS DE ANUNCIOS.
-function quitarCamposAnteriores()
-{
-		if(document.getElementById("camposTematico") != null)
-			document.getElementById("camposTematico").remove()
-		if(document.getElementById("camposFlash") != null)
-			document.getElementById("camposFlash").remove()
-		if(document.getElementById("camposIndividualizado") != null)
-			document.getElementById("camposIndividualizado").remove()	
-
+// Quita los campos de otros tipos de aunucios.
+function quitarCamposAnteriores() {
+	if(document.getElementById("camposTematico") != null)
+		document.getElementById("camposTematico").remove()
+	
+	if(document.getElementById("camposFlash") != null)
+		document.getElementById("camposFlash").remove()
+	
+	if(document.getElementById("camposIndividualizado") != null)
+		document.getElementById("camposIndividualizado").remove()	
 }
 
-
-
-
-//AÑADE LOS LISTENERS A LOS BOTONES DE LOS DESTINATARIOS
-//FUNCION PARA SELECCIONAR DESTINATARIOS
-function seleccionarDestinatario()
-{
+// Añade los listeners a los botones de los destinatarios
+// Función para seleccionar destinatarios.
+function seleccionarDestinatario() {
 	var id = this.getAttribute("id");
+	id     = id.replace("botonDestinatario", "");
 	
-	id = id.replace("botonDestinatario", "");
-	
-	if(botonesDestinatariosBoolean[id] === false || botonesDestinatariosBoolean[id]==="")
-	{
+	if(botonesDestinatariosBoolean[id] === false || botonesDestinatariosBoolean[id]==="") {
 		this.style.backgroundColor= "green";
 		botonesDestinatariosBoolean[id] = true;
 	}
-	else
-	{
+
+	else {
 		this.style.backgroundColor= "";
 		botonesDestinatariosBoolean[id] = false;
 	}
 	
 	console.log(id);
-	
 }
 
-
-//CHECKEA SI SE DAN LAS CONDICIONES PARA CREAR UN ANUNCIO
-function checkSubmit()
-{
-	//console.log(tipo);
-	
-	//console.log(document.getElementById("titulo").value);
-	//console.log(document.getElementById("contenido").value);
-	if(document.getElementById("titulo").value !== "" && document.getElementById("contenido").value !== "")
+// Comprueba si se dan las condiciones para crear un anuncio.
+function checkSubmit() {
+	if(
+		document.getElementById("titulo").value    !== "" && 
+		document.getElementById("contenido").value !== "")
 	{
-
-	
-		if(radioIndividualizado.checked === true)
-		{
+		if(radioIndividualizado.checked === true) {
 			let checkboxesDestinatarios = document.getElementsByName("destinatario");
-			
 			var numDestinatarios = 0;
+
 			for(let i = 0;i<checkboxesDestinatarios.length;i++)
-			{
-				if(checkboxesDestinatarios[i].checked)
-				{
-					numDestinatarios++;
-				}
-			}
+				if(checkboxesDestinatarios[i].checked) numDestinatarios++;
 			
 			if(numDestinatarios === 0)
-			{
 				alert("Elige al menos un destinatario");
-			}	
-			else
-			{
+
+			else {
 				let idDestinatarios = "";
-				
-				
-				
-				for(let i = 0;i<checkboxesDestinatarios.length;i++)
-				{
-					if(checkboxesDestinatarios[i].checked)
-					{
+
+				for(let i = 0;i<checkboxesDestinatarios.length;i++) {
+					if(checkboxesDestinatarios[i].checked) {
 						let idReal = checkboxesDestinatarios[i].id.replace("botonDestinatario","");
-						
-						idDestinatarios+=idReal+=",";
+						idDestinatarios += idReal += ",";
 					}
 				}
 				
-				if(confirm("¿Desea crear el anuncio?"))
-				{
+				if(confirm("¿Desea crear el anuncio?")) {
 					document.getElementById("idsDestinatarios").value = idDestinatarios;				
 					document.getElementById("formularioCrearAnuncio").submit();					
 				}
+			}
+		}
 
+		else if(radioTematico.checked === true) {
+			if(confirm("¿Desea crear el anuncio?"))
+				document.getElementById("formularioCrearAnuncio").submit();
+		}
 
-				
+		else if(radioFlash.checked === true) {
+			if(
+				confirm("¿Desea crear el anuncio?") && 
+				document.getElementById("fechaInicio").value != "" && 
+				document.getElementById("fechaFin").value != "") 
+			{
+				document.getElementById("formularioCrearAnuncio").submit();
 			}
 		}
-		else if(radioTematico.checked === true)
-		{
+		else {
 			if(confirm("¿Desea crear el anuncio?"))
-			{
 				document.getElementById("formularioCrearAnuncio").submit();
-			}
-		}
-		else if(radioFlash.checked === true)
-		{
-			
-			if(confirm("¿Desea crear el anuncio?") && document.getElementById("fechaInicio").value != "" && document.getElementById("fechaFin").value != "")
-			{
-				document.getElementById("formularioCrearAnuncio").submit();
-			}
-		}
-		else
-		{
-			if(confirm("¿Desea crear el anuncio?"))
-			{
-				document.getElementById("formularioCrearAnuncio").submit();
-			}
 		}
 	}
+
 	else
-	{
 		alert("Rellena los campos.");
-	}
-	
-	
 }
 
 
-//CADA VEZ QUE CAMBIO UNA FECHA EN EL FORMULARIO SE UPDATEA LA FECHAFIN RESPECTO A LA FECHAINICIO
-function checkFechas()
-{
+// Al cambiar la fecha en el formulario, se actualiza la fecha final respecto al inicio.
+function checkFechas() {
 	let inputFechaInicio = document.getElementById("fechaInicio");
-	let inputFechaFin = document.getElementById("fechaFin");
-	FechaFin.min = inputFechaInicio.value;		
+	let inputFechaFin    = document.getElementById("fechaFin");
+	FechaFin.min         = inputFechaInicio.value;		
+	
 	if(inputFechaFin.value < inputFechaInicio.value)
-	{
 		inputFechaFin.value = inputFechaInicio.value;
-		
-	}
-
-	
-	
 }
 
 
-//AÑADE FUNCIONALIDAD PARA MOSTRAR MÁS CAMPOS EN EL FORMULARIO AL ELEGIR TIPO DE ANUNCIO
-function cambiarTipo()
-{
-	
+// Añade una funcionalidad para mostrar mas campos
+function cambiarTipo() {
 	let formulario = document.getElementById("campos"); 
 	
-
-	
-	if(radioGeneral.checked === true)
-	{
+	if(radioGeneral.checked === true) 
 		quitarCamposAnteriores();
-	}
-	else if(radioIndividualizado.checked === true)
-	{
+
+	else if(radioIndividualizado.checked === true) {
 		quitarCamposAnteriores();
 		let div = document.createElement('div');
 		div.setAttribute("class", "campo");
 		div.setAttribute("id", "camposIndividualizado")
 		div.innerHTML = '<label class="label" for="destinatario">Destinatarios</label><br/>';
-		for(let i = 0;i<arrayContactos.length;i++)
-		{
+		
+		for(let i = 0;i<arrayContactos.length;i++) {
 			div.innerHTML += `
-			
-			
-			<label class="checkbox-class cb">${arrayContactos[i].nombre} ${arrayContactos[i].apellidos} (${arrayContactos[i].email})
-				<input type ="checkbox" name ="destinatario" class="destinatario" id = "botonDestinatario${arrayContactos[i].id}" value="${arrayContactos[i].nombre}" >
-				<span class="checkmark cm"></span>
-			</label>	
+				<label class="checkbox-class cb">${arrayContactos[i].nombre} ${arrayContactos[i].apellidos} (${arrayContactos[i].email})
+					<input type ="checkbox" name ="destinatario" class="destinatario" id = "botonDestinatario${arrayContactos[i].id}" value="${arrayContactos[i].nombre}" >
+					<span class="checkmark cm"></span>
+				</label>	
 			`
 		}
-		div.innerHTML+=`
 		
-		<input type="hidden" id="idsDestinatarios" name="idsDestinatarios">
-		
-		`
+		div.innerHTML+=`<input type="hidden" id="idsDestinatarios" name="idsDestinatarios">`
+
 		formulario.appendChild(div);
-		
 		anadirListeners();
 	}
-	else if(radioTematico.checked === true)
-	{
+
+	else if(radioTematico.checked === true) {
 		quitarCamposAnteriores();
 		
 		let div = document.createElement('div');
 		div.setAttribute("class", "campo");
 		div.setAttribute("id", "camposTematico");
+
 		div.innerHTML = `
 			<div class="row">
 				<div class="col-1">
@@ -230,15 +172,15 @@ function cambiarTipo()
 					</label>
 				</div>
 			</div>
-		
 		`;
+		
 		formulario.appendChild(div);
 	}
-	else if(radioFlash.checked === true)
-	{
-		let fecha = new Date()
-		let diaActual = fecha.getDate();
-		let mesActual = fecha.getMonth() + 1;
+	
+	else if(radioFlash.checked === true) {
+		let fecha      = new Date()
+		let diaActual  = fecha.getDate();
+		let mesActual  = fecha.getMonth() + 1;
 		let anyoActual = fecha.getFullYear();
 		
 		if(diaActual < 10)
@@ -252,31 +194,26 @@ function cambiarTipo()
 		let div = document.createElement('div');
 		div.setAttribute("class", "campo");
 		div.setAttribute("id", "camposFlash");
+		
 		div.innerHTML = `
-					<div class="row">
-						<div class="col-1">
-							<label for="fecha_inicio">Fecha de inicio</label>
-						</div>
-						<div class="col-2">
-							<input type="date" id="fechaInicio" name="fechaInicio" value="${anyoActual}-${mesActual}-${diaActual}" min="${anyoActual}-${mesActual}-${diaActual}}" max="2030-12-31" onchange="checkFechas()">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-1">
-							<label for="fecha_fin">Fecha de cierre</label>
-						</div>
-						<div class="col-2">
-							<input type="date" id="fechaFin" name="fechaFin" value="${anyoActual}-${mesActual}-${diaActual}" min="${anyoActual}-${mesActual}-${diaActual}" max="2030-12-31" onchange="checkFechas()">
-						</div>
-					</div>
+			<div class="row">
+				<div class="col-1">
+					<label for="fecha_inicio">Fecha de inicio</label>
+				</div>
+				<div class="col-2">
+					<input type="date" id="fechaInicio" name="fechaInicio" value="${anyoActual}-${mesActual}-${diaActual}" min="${anyoActual}-${mesActual}-${diaActual}}" max="2030-12-31" onchange="checkFechas()">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-1">
+					<label for="fecha_fin">Fecha de cierre</label>
+				</div>
+				<div class="col-2">
+					<input type="date" id="fechaFin" name="fechaFin" value="${anyoActual}-${mesActual}-${diaActual}" min="${anyoActual}-${mesActual}-${diaActual}" max="2030-12-31" onchange="checkFechas()">
+				</div>
+			</div>
 		`
+		
 		formulario.appendChild(div);
-		
-		
-		
-		
 	}
-	
-	
-	
 }

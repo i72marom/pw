@@ -1,6 +1,5 @@
 
-//FUNCIONES PARA ABRIR/CERRAR LAS PESTAÑAS DE LOGIN Y REGISTRO
-
+// Funciones para abrir/cerrar los formularios de login y registro
 function muestraLogin() {
 	var login    = document.getElementById('login-form');
 	var registro = document.getElementById('registro-form');
@@ -37,51 +36,35 @@ function cierraRegistro() {
 	logo.style.display     = "block";
 }
 
-//FUNCION QUE VALIDA EL REGISTRO
-function checkRegistro()
-{
-	let nombre = document.getElementById("nombre");
-	let apellido1 = document.getElementById("prim_ap");
-	let apellido2 = document.getElementById("seg_ap");
-	let email = document.getElementById("correo");
-	let fecha_nac = document.getElementById("fechanac");
-	let edad = document.getElementById("edad");
-	let password = document.getElementById("password");
-	let conf_password= document.getElementById("password-rep");
-	
+// Funcion para validar el registro
+function checkRegistro() {
+	let nombre        = document.getElementById("nombre");
+	let apellido1     = document.getElementById("prim_ap");
+	let apellido2     = document.getElementById("seg_ap");
+	let email         = document.getElementById("correo");
+	let fecha_nac     = document.getElementById("fechanac");
+	let edad          = document.getElementById("edad");
+	let password      = document.getElementById("password");
+	let conf_password = document.getElementById("password-rep");
 	
 	if(nombre.value === "" || apellido1.value === "" || apellido2.value === "" || email.value === "" || fecha_nac.value === "" || edad.value === "" || password.value === "" || conf_password.value === "")
-	{
 		alert("Rellena todos los campos.");
-	}
-	else
-	{
+
+	else {
 		if(password.value.length < 6)
-		{
 			alert("Contraseña demasiado corta. Mínimo 6 caracteres.");
-		}
-		else
-		{
+
+		else {
 			if(password.value != conf_password.value)
-			{
 				alert("Las contraseñas no coinciden.");
-			}
-			else
-			{
-				
+
+			else {
 				if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(email.value))
-				{
 					document.getElementById("registroForm").submit();
-				}
+
 				else
-				{
 					alert("Correo inválido.");
-				}
-					
 			}			
 		}
-
 	}
-	
-	
 }
