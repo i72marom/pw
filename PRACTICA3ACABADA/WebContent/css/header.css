@@ -89,33 +89,6 @@ body {
 	display: block;
 }
 
-@media screen and (max-width: 850px) {
-	.navbar .responsive {
-		display: block;
-		width: 100%;
-		float: none;
-	}
-
-	.content, .header, .boton img {
-		display: none;
-	}
-
-	.navbar:hover .content {
-		display: block;
-	}
-
-	.content a, .desplegable {
-		width: 100%;
-		text-align: left;
-		float: left;
-	}
-
-	.cuenta {
-		width: 100%
-	}
-}
-
-
 /* Add a color to the active/current link */
 .navbar a.active {
   background: linear-gradient(to bottom, #49aeef 0%, #1e97e5 100%);

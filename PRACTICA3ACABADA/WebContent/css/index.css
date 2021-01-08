@@ -145,35 +145,7 @@ input[type=submit]:hover {
 	padding: 10px;
 }
 
-#logo {
-	float: left;
-	margin-top: 17%;
-	margin-left: 5%;
-	width: 55%;
-	color: #fff;
-	font-size: 17px;
-	text-shadow: 1px 1px 0 #aaa;
-}
-
 .p {
 	color: #2b2b2b;
 	margin-top: -10px;
-}
-
-.logo-img {
-	width: 100%;
-}
-
-@media (max-width: 620px) {
-
-	#login-form, #registro-form {
-		width: 80%;
-		margin-left: 5%;
-		margin-right: 5%;
-	}
-
-	form input {
-		width: 90%;
-	}
-
 }

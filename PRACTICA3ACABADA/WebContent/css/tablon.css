@@ -1,16 +1,9 @@
-body {
-	font-family: arial,courier;
-}
-
-.body {
-	width: 100%;
-}
+body { font-family: arial,courier; }
 
 h1 {
 	font-weight: 1000;
 	font-size: 45px;
 }
-
 
 .fecha {
 	color: #505558;
@@ -40,9 +33,7 @@ h1 {
 	animation-duration: 1s;
 }
 
-.menos {
-	display: none;
-}
+.menos { display: none; }
 
 .enlaces, .autor, .archivado, .publicado, .editado, .espera {
 	text-decoration: none;
@@ -51,6 +42,7 @@ h1 {
 	font-size: 20px;
 }
 
+/* colores para los distintos tipos de estado */
 .archivado { color: #b52929; }
 .publicado { color: #29b544; }
 .editado { color: #294bb5; }
@@ -62,7 +54,7 @@ h1 {
 .espera-class { border-left: 5px solid #b2b529; padding: 10px 50px 10px 50px; }
 .anuncio-class { border-left: 5px solid #e56e2c; padding: 10px 50px 10px 50px; }
 
-.botonesMisAnuncios{
+.botonesMisAnuncios {
 	width:120px;
 	height:30px;
 	color: #f0f0f0;
@@ -74,7 +66,8 @@ h1 {
 	font-size: 14px;
 	background: linear-gradient(to bottom, #105079 0%, #3e82ad 100%);
 }
-.botonesMisAnuncios:hover{
+
+.botonesMisAnuncios:hover {
 	background: linear-gradient(to bottom, #0c3a58 0%, #2e6080 100%);
 	box-shadow: 3px 3px 4px #606060;
 }
@@ -84,14 +77,4 @@ h1 {
 	100% {opacity: 1;}
 }
 
-#dia {
-	display: none;
-}
-
-
-
-
-.anuncio-class {
-	width: 95%;
-
-}
+.anuncio-class { width: 95%; }

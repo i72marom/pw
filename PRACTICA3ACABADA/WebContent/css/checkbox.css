@@ -13,7 +13,7 @@
 	padding-left: 80px;
 }
 
-/* Hide the browser's default checkbox */
+/* Oculta el checkbox por defecto del navegador */
 .checkbox-class input {
 	position: absolute;
 	opacity: 0;
@@ -22,7 +22,7 @@
 	width: 0;
 }
 
-/* Create a custom checkbox */
+/* Checkbox personalizado */
 .checkmark, .checkmark-radio {
 	margin-left: 50px;
 	position: absolute;
@@ -36,32 +36,32 @@
 .checkmark-radio { border-radius: 50%; }
 .checkmark { border-radius: 5px; }
 
-/* On mouse-over, add a grey background color */
+/* Fondo gris al pasar el raton */
 .checkbox-class:hover input ~ .checkmark,
 .checkbox-class:hover input ~ .checkmark-radio {
 	background-color: #ccc;
 }
 
-/* When the checkbox is checked, add a blue background */
+/* Checkbox marcado, fondo azul */
 .checkbox-class input:checked ~ .checkmark,
 .checkbox-class input:checked ~ .checkmark-radio {
  	background-color: #2196F3;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
+/* Marca para checkbox, oculta si no está seleccionado */
 .checkmark:after, .checkmark-radio:after {
 	content: "";
 	position: absolute;
 	display: none;
 }
 
-/* Show the checkmark when checked */
+/* Muestra la marca */
 .checkbox-class input:checked ~ .checkmark:after,
 .checkbox-class input:checked ~ .checkmark-radio:after {
  	display: block;
 }
 
-/* Style the checkmark/indicator */
+/* Estilo de la marca */
 .checkbox-class .checkmark:after {
 	left: 5px;
 	top: 1px;
@@ -74,11 +74,7 @@
 	transform: rotate(45deg);
 }
 
-.activo{
-	
-	 border-right: 5px solid #105079;
-	
-}
+.activo { border-right: 5px solid #105079; }
 
 .checkbox-class .checkmark-radio:after {
  	top: 4px;
