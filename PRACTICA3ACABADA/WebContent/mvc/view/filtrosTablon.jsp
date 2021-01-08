@@ -57,15 +57,15 @@
 				<h2>Ordenar por</h2>
 				
 				<label class="checkbox-class">Autor
-					<input type="radio" checked="checked" name="order_by" value="autor" id="OBautor">
+					<input type="radio" name="order_by" value="autor" id="OBautor" onclick="cookieOrderBy('autor')">
 					<span class="checkmark-radio"></span>
 				</label>
 				<label class="checkbox-class">Titulo
-					<input type="radio" name="order_by" value="titulo" id="OBtitulo">
+					<input type="radio" name="order_by" value="titulo" id="OBtitulo" onclick="cookieOrderBy('titulo')">
 					<span class="checkmark-radio"></span>
 				</label>
 				<label class="checkbox-class">Fecha
-					<input type="radio" name="order_by" value="fecha" id="OBfecha" checked>
+					<input type="radio" name="order_by" value="fecha" id="OBfecha" onclick="cookieOrderBy('fecha')">
 					<span class="checkmark-radio"></span>
 				</label>
 			</form>

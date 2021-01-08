@@ -2,7 +2,7 @@
  * 
  */
 
-
+//VARIABLES GLOBALES
 const input = document.getElementById("buscador");
 
 
@@ -21,6 +21,9 @@ let camposContenido = document.getElementsByClassName("anuncioCompleto");
 let checkBoxesOrdenar = document.getElementsByClassName("checkBoxOrdenar")
 let formOrderBy = document.getElementById("formOrderBy");
 
+
+//INICIALIZA EL ARRAY DE ANUNCIOS
+
 function inicializarArray()
 {
 	for(let producto of productos)
@@ -29,7 +32,7 @@ function inicializarArray()
 	}
 }
 
-
+//INICIALIZA LOS LISTENERS DE LOS BOTONES VER MAS / OCULTAR Y ORDERBY
 function inicializarListeners(){
 	
 	for(let botonMas of botonesMas)
@@ -46,7 +49,7 @@ function inicializarListeners(){
 	}
 }
 
-
+//FUNCIONES RELACIONADAS CON LOS BOTONES VER MÁS / OCULTAR DE LOS ANUNCIOS
 function verMas() {
 
 	let id = this.id.replace("verMas", "");
@@ -94,34 +97,45 @@ function verMenos() {
 	//botonesMenos[id].style.display     = "none";
 }
 
-function ordenarPor()
+
+//FUNCION QUE INICIALIZA EL ORDER BY EN LA PRIMERA ENTRADA A LA PÁGINA, OBTENIENDO EL VALOR DE LA COOKIE "order_by"
+function inicializarOrdenarPor()
 {
-	if(this.id === "cbAutor")
+	const param = new URLSearchParams(window.location.search);
+	let valorCookieOrdenarPor = leerCookie("order_by");
+	console.log(valorCookieOrdenarPor);
+	if(param.get('order_by') === null)
 	{
-		document.getElementById("cbFecha").checked = false;
-		document.getElementById("cbTema").checked = false;
-		
-		formOrderBy.action="/Tablon?order_by=Autor";
-		formOrderBy.submit();
-		
+		if(valorCookieOrdenarPor === "autor")
+		{
+			document.getElementById("OBautor").checked = true;
+			document.getElementById("formBuscar").submit();
+		}
+		else if(valorCookieOrdenarPor === "titulo")
+		{
+			document.getElementById("OBtitulo").checked = true;
+			document.getElementById("formBuscar").submit();
+		}
+		else if(valorCookieOrdenarPor === "fecha")
+		{
+			document.getElementById("OBfecha").checked = true;
+			document.getElementById("formBuscar").submit();
+		}
+		else
+		{
+			document.getElementById("OBFecha").checked = true;
+			document.getElementById("formBuscar").submit();
+		}		
 	}
-	else if(this.id === "cbFecha")
-	{
-		document.getElementById("cbTema").checked = false;
-		document.getElementById("cbAutor").checked = false;
-		formOrderBy.action="/Tablon?order_by=Fecha";
-		formOrderBy.submit();
-		
-	}
-	else if(this.id === "cbTitulo")
-	{
-		document.getElementById("cbFecha").checked = false;
-		document.getElementById("cbAutor").checked = false;
-		formOrderBy.action="/Tablon?order_by=Titulo";
-		formOrderBy.submit();
-	}
+
+}
+//FUNCIONES PARA MODIFICAR EL VALOR DE LA COOKIE ORDER_BY CADA VEZ QUE CAMBIE DE VALOR.
+function cookieOrderBy( opcion )
+{
+	document.cookie = "order_by = " + opcion + "; max-age=36000;";
 }
 
+//FUNCION PARA MOSTRAR SOLO AQUELLOS ANUNCIOS QUE CUMPLAN LOS FILTROS
 function cambiarFiltros()
 {
 	let temas = document.getElementsByClassName("checkboxTema");
@@ -167,7 +181,7 @@ function cambiarFiltros()
 	
 	
 }
-
+//INICIALIZA LOS INPUTS CON LOS DATOS DE LO BUSCADO ANTERIORMENTE
 function inicializarFiltros(){
 	
 	const param = new URLSearchParams(window.location.search);
@@ -201,13 +215,28 @@ function inicializarFiltros(){
 	
 }
 
+//FUNCIONES RELACIONADAS CON LAS COOKIES
+
+function leerCookie(nombre) {
+         var lista = document.cookie.split(";");
+         for (i in lista) {
+             var busca = lista[i].search(nombre);
+             if (busca > -1) {micookie=lista[i]}
+             }
+         var igual = micookie.indexOf("=");
+         var valor = micookie.substring(igual+1);
+         return valor;
+}
 
 
-//input.addEventListener("keyup", filtrar2)
+
+
+//FUNCIONES QUE SE EJECUTAN AL CARGAR LA PÁGINA
+
 cambiarFiltros();
 inicializarListeners();
 inicializarArray();
 inicializarFiltros();
-//filtrar2();
-
+ordenarPor();
+inicializarOrdenarPor();
 

@@ -15,6 +15,9 @@ function checkEditarBoton()
 	
 	//formulario.submit();
 }
+
+
+//VALIDA LOS CAMPOS A LA HORA DE EDITAR EL ANUNCIO
 function checkSubmit()
 {
 	

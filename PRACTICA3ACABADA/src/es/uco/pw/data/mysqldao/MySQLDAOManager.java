@@ -1,18 +1,17 @@
 package es.uco.pw.data.mysqldao;
 
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
-import java.io.InputStream;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import es.uco.pw.business.contacto.GestorContactos;
+
 import es.uco.pw.data.dao.AnuncioDAO;
 import es.uco.pw.data.dao.ContactoDAO;
-import es.uco.pw.data.dao.DAO;
+
 import es.uco.pw.data.dao.DAOManager;
 /**
  * Clase que sirve de Manager de los daos e implementa un singleton para obtener sólo una vez el anuncioDAO y el contactoDAO
@@ -75,7 +74,9 @@ public class MySQLDAOManager implements DAOManager{
 		}
 		return contacto;
 	}
-	
+	/**
+	 * Carga las propiedades de la BBDD
+	 */
 	private void cargarConfiguracionBBDD()
 	{
 		java.io.InputStream IO = null;

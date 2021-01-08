@@ -5,13 +5,14 @@
 
 'use strict'
 
+//VARIABLES GLOBALES
 
 let tipo;
 let radioGeneral = document.getElementById("radioGeneral");
 let radioIndividualizado = document.getElementById("radioIndividualizado");
 let radioTematico = document.getElementById("radioTematico");
 let radioFlash = document.getElementById("radioFlash");
-
+let botonesDestinatariosBoolean;
 
 //QUITA LOS CAMPOS DEL FORMULARIO DE OTROS TIPOS DE ANUNCIOS.
 function quitarCamposAnteriores()
@@ -25,7 +26,7 @@ function quitarCamposAnteriores()
 
 }
 
-let botonesDestinatariosBoolean;
+
 
 
 //AÑADE LOS LISTENERS A LOS BOTONES DE LOS DESTINATARIOS
@@ -96,9 +97,13 @@ function checkSubmit()
 					}
 				}
 				
-				document.getElementById("idsDestinatarios").value = idDestinatarios;
-				
-				document.getElementById("formularioCrearAnuncio").submit();
+				if(confirm("¿Desea crear el anuncio?"))
+				{
+					document.getElementById("idsDestinatarios").value = idDestinatarios;				
+					document.getElementById("formularioCrearAnuncio").submit();					
+				}
+
+
 				
 			}
 		}
@@ -247,15 +252,6 @@ function cambiarTipo()
 		let div = document.createElement('div');
 		div.setAttribute("class", "campo");
 		div.setAttribute("id", "camposFlash");
-		/*div.innerHTML = `
-		<label class="label" for="temas">Fecha inicio</label>
-		<br/>
-		<input type="date" id="fechaInicio" name="fechaInicio" value="${fecha.getFullYear()}-${fecha.getMonth()+1}-${fecha.getDate()}" min="${fecha.getFullYear()}-${fecha.getMonth()+1}-${fecha.getDate()}" max="2030-12-31" onchange="checkFechas()">
-		<br/>
-		<label class="label" for="temas">Fecha Fin</label>
-		<br/>
-		<input type="date" id="fechaFin" name="fechaFin" value="${fecha.getFullYear()}-${fecha.getMonth()+1}-${fecha.getDate()}" min="${fecha.getFullYear()}-${fecha.getMonth()+1}-${fecha.getDate()}" max="2030-12-31" onchange="checkFechas()">`;
-		*/
 		div.innerHTML = `
 					<div class="row">
 						<div class="col-1">
@@ -281,69 +277,6 @@ function cambiarTipo()
 		
 	}
 	
-	//console.log(arrayContactos);
-	
-
-	
-	//let formulario = document.getElementById("campos");
-	
-
-	
-	
-	
-	/*if(input === "general")
-	{
-		quitarCamposAnteriores();
-	}
-	
-	if(input === "tematico")
-	{
-		quitarCamposAnteriores();
-		
-		let div = document.createElement('div');
-		div.setAttribute("class", "campo");
-		div.setAttribute("id", "camposTematico");
-		div.innerHTML = '<label class="label" for="temas">Temas</label><br/><input type="text" id="inputTemas" name="inputTemas" placeholder="temas separados por comaxd" required>';
-		formulario.appendChild(div);
-	}
-	else if(input === "individualizado")
-	{
-		quitarCamposAnteriores();
-		let div = document.createElement('div');
-		div.setAttribute("class", "campo");
-		div.setAttribute("id", "camposIndividualizado")
-		div.innerHTML = '<label class="label" for="destinatario">Destinatarios</label><br/>';
-		for(let i = 0;i<arrayContactos.length;i++)
-		{
-			div.innerHTML += `<input type ="button" name ="destinatario" class="destinatario" id = "botonDestinatario${i}"style="margin-left:5px;" value="${arrayContactos[i].nombre}" >`
-		}
-		div.innerHTML+=`<input type="hidden" id="idsDestinatarios" name="idsDestinatarios">`
-		formulario.appendChild(div);
-		
-		anadirListeners();
-		
-	}
-	else if(input === "flash")
-	{
-		
-		let fecha = new Date()
-		
-		quitarCamposAnteriores();
-		let div = document.createElement('div');
-		div.setAttribute("class", "campo");
-		div.setAttribute("id", "camposFlash");
-		div.innerHTML = `
-		<label class="label" for="temas">Fecha inicio</label>
-		<br/>
-		<input type="date" id="fechaInicio" name="fechaInicio" value="${fecha.getFullYear()}-${fecha.getMonth()+1}-${fecha.getDate()}" min="${fecha.getFullYear()}-${fecha.getMonth()+1}-${fecha.getDate()}" max="2030-12-31" onchange="checkFechas()">
-		<br/>
-		<label class="label" for="temas">Fecha Fin</label>
-		<br/>
-		<input type="date" id="fechaFin" name="fechaFin" value="${fecha.getFullYear()}-${fecha.getMonth()+1}-${fecha.getDate()}" min="${fecha.getFullYear()}-${fecha.getMonth()+1}-${fecha.getDate()}" max="2030-12-31" onchange="checkFechas()">`;
-		formulario.appendChild(div);
-	}
-	
-*/	
 	
 	
 }

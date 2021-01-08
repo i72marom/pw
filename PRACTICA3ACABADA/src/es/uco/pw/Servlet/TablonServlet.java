@@ -2,7 +2,7 @@ package es.uco.pw.Servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -72,7 +72,6 @@ public class TablonServlet extends HttpServlet {
 		if(search == null && orderby == null)
 		{
 			request.getRequestDispatcher("/mvc/view/boardView.jsp").forward(request, response);
-			//response.sendRedirect(request.getContextPath()+"/mvc/view/boardView.jsp");
 		}
 			
 		

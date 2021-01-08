@@ -4,14 +4,14 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import es.uco.pw.business.anuncio.Anuncio;
-import es.uco.pw.business.anuncio.GestorAnuncios;
+
 import es.uco.pw.business.contacto.Contacto;
 import es.uco.pw.business.tipos.Estado;
 import es.uco.pw.data.dao.DAOException;
@@ -54,7 +54,7 @@ public class MisAnunciosServlet extends HttpServlet {
 				HttpSession objSession = request.getSession(false);
 				Contacto userLogged = (Contacto) objSession.getAttribute("usuarioLogeado");
 				
-				GestorAnuncios gestor = GestorAnuncios.getInstance();
+
 				MySQLDAOManager manager = null;
 				
 				try {

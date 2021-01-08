@@ -1,11 +1,10 @@
 package es.uco.pw.data.mysqldao;
 
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.Date;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -57,10 +56,10 @@ public class MySQLAnuncioDAO implements AnuncioDAO{
 
 		try {
 			IO = getClass().getClassLoader().getResourceAsStream("sql.properties");
-		    // load a properties file
+		   
+
 		    prop.load(IO);
 
-		    // load a properties file
 
 		    
 		    

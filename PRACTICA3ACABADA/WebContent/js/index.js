@@ -1,3 +1,6 @@
+
+//FUNCIONES PARA ABRIR/CERRAR LAS PESTAÑAS DE LOGIN Y REGISTRO
+
 function muestraLogin() {
 	var login    = document.getElementById('login-form');
 	var registro = document.getElementById('registro-form');

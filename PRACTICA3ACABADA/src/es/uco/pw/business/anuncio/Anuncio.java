@@ -1,6 +1,6 @@
 package es.uco.pw.business.anuncio;
 import java.time.LocalDate;
-import java.util.Date;
+
 
 import es.uco.pw.business.contacto.Contacto;
 import es.uco.pw.business.tipos.Estado;

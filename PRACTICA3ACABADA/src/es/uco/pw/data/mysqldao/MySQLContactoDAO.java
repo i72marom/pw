@@ -1,18 +1,16 @@
 package es.uco.pw.data.mysqldao;
 
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
-import java.sql.Array;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.sql.Date;
+
 import java.util.Properties;
 
 import com.mysql.jdbc.Statement;
@@ -211,7 +209,7 @@ public class MySQLContactoDAO implements ContactoDAO{
 	
 	@Override
 	/**
-	 * Función para modificarun contacto de la BBDD
+	 * Función para modificar un contacto de la BBDD
 	 */
 	public void Modificar(Contacto a) throws DAOException {
 		PreparedStatement stat = null;
@@ -424,6 +422,10 @@ public class MySQLContactoDAO implements ContactoDAO{
 		return a;
 	}
 
+	
+	/**
+	 * Funcion que devuelve el usuario al logearse o null en caso de que no coincidan los datos de entrada.
+	 */
 	public Contacto validarLogin(String mail, String password) throws DAOException {
 		PreparedStatement stat = null;
 		ResultSet rs = null;

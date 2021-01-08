@@ -5,11 +5,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 import es.uco.pw.business.anuncio.Anuncio;
 import es.uco.pw.business.contacto.Contacto;
@@ -44,10 +44,9 @@ public class AdminServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//OBTIENE LOS DATOS DEL USER LOGEADO
 		
 		
-		HttpSession objSession = request.getSession(false);
-		Contacto userLogged = (Contacto) objSession.getAttribute("usuarioLogeado");
 		MySQLDAOManager manager = null;
 		try {
 			manager = MySQLDAOManager.getInstance();
@@ -61,7 +60,7 @@ public class AdminServlet extends HttpServlet {
 		
 		
 		
-		
+		//SI PASAN POR PARAMETRO UN ID Y UNA ACCION, SE REALIZA
 		if(!idUser.equals("") && !accion.equals(""))
 		{
 			if(accion.equals("hacerAdmin"))
@@ -119,7 +118,7 @@ public class AdminServlet extends HttpServlet {
 			}
 		}
 
-		
+		//REDIRECCIONA A /ADMIN
 		response.sendRedirect(request.getContextPath()+"/Admin");
 		
 	}

@@ -1,10 +1,9 @@
 package es.uco.pw.business.anuncio;
-import java.util.Date;
-import java.util.Properties;
+
 import java.util.Scanner;
 
 import es.uco.pw.business.contacto.Contacto;
-import es.uco.pw.business.contacto.GestorContactos;
+
 import es.uco.pw.business.tipos.Estado;
 import es.uco.pw.business.tipos.Tipo;
 import es.uco.pw.data.dao.DAOException;
@@ -50,7 +49,12 @@ public class GestorAnuncios {
 	
 	////////////////////////////////////////////////FUNCIONES DE CARGA Y GUARDA DEL TABLON////////////////////////////////////////////////////////////
 
-	
+	/**
+	 * Devuelve si los temas del anuncio coinciden con los del user
+	 * @param temasAnuncio
+	 * @param temasUser
+	 * @return
+	 */
 	public boolean coincidenTemas(ArrayList<String> temasAnuncio, ArrayList<String> temasUser)
 	{
 		
@@ -71,6 +75,7 @@ public class GestorAnuncios {
 		
 	}
 	
+	
 	public String fechaActual()
 	{
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -90,6 +95,12 @@ public class GestorAnuncios {
 		return LocalDate.now().getYear();
 	}
 	
+	/**
+	 * Devuelve si un usuario es destinatario de un anuncio
+	 * @param destinatarios
+	 * @param idUser
+	 * @return
+	 */
 	public boolean esDestinatario(ArrayList<Long> destinatarios, Long idUser)
 	{
 		boolean resultado = false;
@@ -102,6 +113,19 @@ public class GestorAnuncios {
 		
 		return resultado;
 	}
+	
+	
+	/**
+	 * Funcion que filtra los anuncios de la entrada para devolver los que debe mostrar en el tablón a cada user dependiendo de los criterios de búsqueda
+	 * @param anuncios
+	 * @param idUser
+	 * @param buscar
+	 * @param by
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 * @throws DAOException
+	 */
 	
 	public ArrayList<Anuncio> anadirAnunciosAMostrar(ArrayList<Anuncio> anuncios, Long idUser, String buscar, String by) throws ClassNotFoundException, SQLException, DAOException
 	{
@@ -285,6 +309,14 @@ public class GestorAnuncios {
 
 	}
 	
+	
+	/**
+	 * Filtra los anuncios para el apartado de Mis Anuncios
+	 * @param anuncios
+	 * @param buscar
+	 * @param by
+	 * @return
+	 */
 	public ArrayList<Anuncio> filtrar(ArrayList<Anuncio> anuncios, String buscar, String by)
 	{
 		ArrayList<Anuncio> filtrados = new ArrayList<Anuncio>();
@@ -305,6 +337,11 @@ public class GestorAnuncios {
 		return filtrados;
 	}
 	
+	/**
+	 * Ordena por fecha el array de anuncios
+	 * @param anunciosAMostrar
+	 * @return
+	 */
 	public ArrayList<Anuncio> ordenarPorFecha(ArrayList<Anuncio> anunciosAMostrar)
 	{
 		for(int i = 0;i<anunciosAMostrar.size();i++)
@@ -323,6 +360,12 @@ public class GestorAnuncios {
 		}
 		return anunciosAMostrar;
 	}
+	
+	/**
+	 * Ordena el array por autor alfabeticamente
+	 * @param anunciosAMostrar
+	 * @return
+	 */
 	public ArrayList<Anuncio> ordenarPorAutor(ArrayList<Anuncio> anunciosAMostrar)
 	{
 		for(int i = 0;i<anunciosAMostrar.size();i++)
@@ -342,6 +385,12 @@ public class GestorAnuncios {
 		return anunciosAMostrar;
 	}
 	
+	
+	/**
+	 * Ordena el array por titulo alfabeticamente
+	 * @param anunciosAMostrar
+	 * @return
+	 */
 	public ArrayList<Anuncio> ordenarPorTitulo(ArrayList<Anuncio> anunciosAMostrar)
 	{
 		for(int i = 0;i<anunciosAMostrar.size();i++)
@@ -360,45 +409,18 @@ public class GestorAnuncios {
 		}
 		return anunciosAMostrar;		
 	}
+	
+	/**
+	 * Devuelve el array inverso al de entrada
+	 * @param anunciosAMostrar
+	 * @return
+	 */
 	public ArrayList<Anuncio> revertir(ArrayList<Anuncio> anunciosAMostrar)
 	{
 		Collections.reverse(anunciosAMostrar);
 		return anunciosAMostrar;
 	}
-	//////////////////////////////////FUNCIONES PRIVADAS///////////////////////////////////////////////////////
-	
-	private boolean tagValido(String tag)
-	{
-		boolean resultado = false;
-		for(int i = 0;i<tags_disponibles_.length && !resultado;i++)
-		{
-			if(tag.equals(tags_disponibles_[i]))
-				resultado = true;
-		}
-		
-		return resultado;
-		
-	}
-	
-	
 
-	
-
-		
-	
-	
-
-
-	
-	private ArrayList<Anuncio> buscarPorFecha(MySQLDAOManager manager, LocalDate fecha) throws DAOException {
-		ArrayList<Anuncio> list = new ArrayList();
-		ArrayList<Anuncio> anuncios = manager.getAnuncioDAO().obtenerTodos();
-		for (Anuncio a : anuncios) {
-			if (a.getFecha() == fecha) list.add(a);
-		}
-
-		return list;
-	}
 	
 	
 }

@@ -36,7 +36,4 @@ public class AnuncioIndividualizado extends Anuncio {
 				+ super.getCuerpo() + ", fecha_=" + super.getFecha() + ", estado_=" + super.getEstado() + ", destinatarios=" + destinatarios_.toString()+ "]";
 	}
 
-	// otras funciones????
-	// public addDestinatario(Contacto destinatario) {}
-	// public delDestinatario(Contacto destinatario) {}
 }

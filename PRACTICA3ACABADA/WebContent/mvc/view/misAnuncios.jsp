@@ -24,7 +24,7 @@
 
 	<!-- OTHERS -->
 	<meta charset="UTF-8">
-	<meta name="description" content="Pagina en la que se muestran los anuncios de los usuarios y ofrece diversas funcionalidades">
+	<meta name="description" content="Pagina en la que se muestran los anuncios de los usuarios y ofrece diversas funcionalidades sobre ellos">
 	<meta name="keywords" content="anuncios, anuncio, mis anuncios">
 	<meta name="author" content="Manuel Jesus Mariscal Romero">
 	<meta name="author" content="Javier Luna Carmona">
@@ -82,6 +82,7 @@
 		
 		
 		<!-- aqui van los resultados de los anuncios -->
+		
 		<div id="tablon">	
 	
 	<%
@@ -128,18 +129,15 @@
 		{
 			if(order_by.equals("titulo"))
 			{
-				System.out.println("entra a titulo");
 				anuncios = gestor.ordenarPorTitulo(anuncios);
 				anuncios = gestor.revertir(anuncios);
 			}
 			else if(order_by.equals("fecha"))
 			{
-				System.out.println("entra a fecha");
 				anuncios = gestor.ordenarPorFecha(anuncios);
 			}
 		}
-		
-		System.out.println(anuncios);
+
 		
 		if(anuncios.size() > 0)
 		{
@@ -195,25 +193,25 @@
 				if(anuncio.getEstado() == Estado.publicado)
 				{
 					%>
-					<p class="fecha"><%=anuncio.getFecha().toString() %> - <span class="publicado">Publicado</span></p>
+					<p class="fecha"><%=anuncio.getFecha().toString() %> - <%=anuncio.getTipo().name().toUpperCase() %> - <span class="publicado">Publicado</span></p>
 					<%
 				}
 				else if(anuncio.getEstado() == Estado.editado)
 				{
 					%>
-					<p class="fecha"><%=anuncio.getFecha().toString() %> - <span class="editado">Editado</span></p>
+					<p class="fecha"><%=anuncio.getFecha().toString() %> - <%=anuncio.getTipo().name().toUpperCase() %> - <span class="editado">Editado</span></p>
 					<%				
 				}
 				else if(anuncio.getEstado() == Estado.archivado)
 				{
 					%>
-					<p class="fecha"><%=anuncio.getFecha().toString() %> - <span class="archivado">Archivado</span></p>
+					<p class="fecha"><%=anuncio.getFecha().toString() %> - <%=anuncio.getTipo().name().toUpperCase() %> - <span class="archivado">Archivado</span></p>
 					<%				
 				}
 				else
 				{
 					%>
-					<p class="fecha"><%=anuncio.getFecha().toString() %> - <span class="espera">En espera</span></p>
+					<p class="fecha"><%=anuncio.getFecha().toString() %> - <%=anuncio.getTipo().name().toUpperCase() %> - <span class="espera">En espera</span></p>
 					<%				
 				}
 				
@@ -338,7 +336,6 @@
 
 	<!-- JAVASCRIPT -->
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/misAnuncios.js" charset="utf-8"></script>
-
 
 </body>
 

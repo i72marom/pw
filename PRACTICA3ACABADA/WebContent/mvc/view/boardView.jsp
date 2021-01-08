@@ -23,7 +23,7 @@
 	
 	<!-- OTHERS -->
 	<meta charset="UTF-8">
-	<meta name="description" content="Pagina principaldentro de la aplicación. En ella se muestra el tablon de anuncios.">
+	<meta name="description" content="Pagina principal dentro de la aplicación. En ella se muestra el tablon de anuncios.">
 	<meta name="keywords" content="tablon, anuncios, anuncio">
 	<meta name="author" content="Manuel Jesus Mariscal Romero">
 	<meta name="author" content="Javier Luna Carmona">
@@ -54,7 +54,6 @@
 			<a href="<%=request.getContextPath()%>/Crear">Crear Anuncio</a> 
 			<a href="<%=request.getContextPath()%>/MisAnuncios">Mis Anuncios</a>
 			<%
-			System.out.println(userLogged.getId());
 			if(userLogged.getAdmin())
 			{
 				%>

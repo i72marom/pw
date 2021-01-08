@@ -5,6 +5,8 @@
 
 <head>
 	<meta charset="ISO-8859-1">
+	
+	<!-- CSS -->
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/header.css">
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/crearAnuncio.css">
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/css/tablon.css">

@@ -5,6 +5,7 @@
 
 
 
+//FUNCIONES DE CONFIRMACIÓN
 
 function hacerAdmin(id)
 {
@@ -40,6 +41,9 @@ function eliminarAnuncio(id)
 	if(confirm("¿Seguro que desea eliminar este anuncio?"))
 		document.getElementById("formHacerAdmin").submit();	
 }
+
+
+//CAMBIA EL DISPLAY DE LOS DIVS PARA AÑADIR DINÁMICA A LA PÁGINA AL PULSAR LOS BOTONES DE LAS SECCIONES
 function cambiar()
 {
 	let radioModeradores = document.getElementById("radioModeradores");

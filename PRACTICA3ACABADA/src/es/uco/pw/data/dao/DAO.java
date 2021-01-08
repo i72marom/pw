@@ -1,6 +1,6 @@
 package es.uco.pw.data.dao;
 
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 /**
  * Interfaz genérica que añade la funcionalidad básica de un DAO para un Template<T,K> siendo T el valor y K la key

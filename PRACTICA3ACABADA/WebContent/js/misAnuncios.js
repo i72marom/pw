@@ -1,3 +1,5 @@
+//FUNCIONES GLOBALES
+
 let publicados = document.getElementsByClassName("publicado-class");
 let archivados = document.getElementsByClassName("archivado-class");
 let editados = document.getElementsByClassName("editado-class");
@@ -10,6 +12,9 @@ let botonesMas       = document.getElementsByClassName("mas");
 let botonesMenos     = document.getElementsByClassName("menos");
 let camposContenidoReducido = document.getElementsByClassName("anuncioReducido");
 let camposContenido = document.getElementsByClassName("anuncioCompleto");
+
+
+//PONE TODOS LOS DISPLAYS DEL TABLON A NONE
 function borrarTodos()
 {
 	for(let i = 0;i<publicados.length;i++)
@@ -21,6 +26,8 @@ function borrarTodos()
 	for(let i = 0;i<en_espera.length;i++)
 		en_espera[i].style.display="none";
 }
+
+//FUNCION PARA MOSTRAR SOLO AQUELLOS ANUNCIOS QUE CUMPLAN LOS FILTROS
 function cambiarFiltros()
 {
 	borrarTodos();
@@ -53,6 +60,8 @@ function cambiarFiltros()
 	
 	
 }
+
+//INICIALIZA LOS LISTENERS DE LOS BOTONES VER MAS/OCULTAR Y ORDERBY
 function inicializarListeners(){
 	
 	for(let botonMas of botonesMas)
@@ -68,6 +77,9 @@ function inicializarListeners(){
 		checkBox.addEventListener("click", ordenarPor);
 	}
 }
+
+
+//FUNCIONES RELACIONADAS CON LOS BOTONES DE VER MÁS / OCULTAR DE LOS ANUNCIOS
 function verMas() {
 
 	let id = this.id.replace("verMas", "");
@@ -114,6 +126,8 @@ function verMenos() {
 	
 	//botonesMenos[id].style.display     = "none";
 }
+
+//INICIALIZA LOS INPUTS CON LOS DATOS DE LO BUSCADO ANTERIORMENTE
 function inicializarFiltros(){
 	
 	const param = new URLSearchParams(window.location.search);
@@ -147,6 +161,7 @@ function inicializarFiltros(){
 	
 }
 
+//FUNCIONES RELACIONADAS CON LOS SUBMITS
 
 function archivar(idPosicion)
 {
@@ -181,6 +196,7 @@ function editar(idPosicion)
 	document.getElementById(idForm).submit();
 }
 
+//FUNCIONES QUE SE EJECUTARÁN AL CARGAR LA PÁGINA
 
 inicializarFiltros();
 cambiarFiltros();

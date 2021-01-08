@@ -1,21 +1,11 @@
 package es.uco.pw.business.contacto;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
+
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Properties;
-import java.util.Random;
-import java.util.Scanner;
+
+
 
 import es.uco.pw.data.dao.DAOException;
 import es.uco.pw.data.mysqldao.MySQLDAOManager;
@@ -32,15 +22,14 @@ public class GestorContactos {
 	
 	
 	
-	private	Scanner leerCadenas = new Scanner(System.in);
-	private	Scanner leerNumeros = new Scanner(System.in);
+
 	
 	//private static ArrayList<Contacto> contactos_ = new ArrayList();
 	private String[] tags_disponibles_;
 	
 	
 	private boolean logged_;
-	private Long id_contacto_logeado_;
+
 	private Contacto contacto_logeado_;
 	
 
@@ -136,6 +125,14 @@ public class GestorContactos {
 		}
 		return resultado;
 	}
+	
+
+	/**
+	 * Devuelve si un usuario tiene seleccionado cierto tag o no
+	 * @param userLogeado
+	 * @param tag
+	 * @return
+	 */
 	public boolean perteneceAlTag(Contacto userLogeado, String tag)
 	{
 		boolean resultado = false;
@@ -154,36 +151,29 @@ public class GestorContactos {
 		return resultado;
 	}
 	
-	
+	/**
+	 * Devuelve si un tag pertenece a los disponibles o no
+	 * @param tag
+	 * @return
+	 */
 	private boolean perteneceTagsDisponibles(String tag) {
 		boolean resultado = false;
 		
 		for(int i = 0;i<tags_disponibles_.length && !resultado;i++)
 		{
-			//System.out.println("Checkeando |"+tag+"| con " + tags_disponibles_[i].replace(" ", ""));
+
 			if(tags_disponibles_[i].replace(" ","").equals(tag))
 			{
-				//System.out.println("No entra aqui?");
+
 				resultado = true;
 			}
 		}
-		//System.out.println("Resultado : " + resultado);
+
 		return resultado;
 	}
 	
-	private boolean tieneEseTagAnadido(String tag, ArrayList<String> array) {
-		
-		boolean res = false;
-		
-		for(int i = 0;i<array.size() && !res;i++)
-		{
-			if(array.get(i).equals(tag))
-				res = true;
-		}
-		
-		
-		return res;
-	}
+	
+
 	
 	
 	

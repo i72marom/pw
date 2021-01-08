@@ -5,7 +5,7 @@
          version="3.1">
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>es.uco.pw.Servlet.LoginAction</servlet-class>
+        <servlet-class>es.uco.pw.Servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>

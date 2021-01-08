@@ -5,16 +5,14 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
-import es.uco.pw.business.*;
-import es.uco.pw.data.*;
+
+
 import es.uco.pw.data.dao.DAOException;
 import es.uco.pw.data.mysqldao.MySQLDAOManager;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -79,7 +77,7 @@ public class CrearAnuncioServlet extends HttpServlet {
 				AnuncioGeneral a = (AnuncioGeneral) anuncio.creaAnuncioGeneral();
 				a.setAutor(userLogged);
 				a.setCuerpo(contenido);
-				a.setEstado(Estado.publicado);
+				a.setEstado(Estado.editado);
 				a.setFecha(LocalDate.now());
 				a.setTipo(Tipo.general);
 				a.setTitulo(titulo);
@@ -110,7 +108,7 @@ public class CrearAnuncioServlet extends HttpServlet {
 				a.setFecha(LocalDate.now());
 				a.setAutor(userLogged);
 				a.setTipo(Tipo.tematico);
-				a.setEstado(Estado.publicado);
+				a.setEstado(Estado.editado);
 				a.setTemas(temasArrayList);
 				
 				
@@ -137,7 +135,7 @@ public class CrearAnuncioServlet extends HttpServlet {
 				a.setFecha(LocalDate.now());
 				a.setAutor(userLogged);
 				a.setTipo(Tipo.flash);
-				a.setEstado(Estado.publicado);
+				a.setEstado(Estado.editado);
 				a.setFechaInicio(fechaInicioLocalDate);
 				a.setFechaFin(fechaFinLocalDate);
 				
@@ -157,7 +155,7 @@ public class CrearAnuncioServlet extends HttpServlet {
 				a.setFecha(LocalDate.now());
 				a.setAutor(userLogged);
 				a.setTipo(Tipo.individualizado);
-				a.setEstado(Estado.publicado);
+				a.setEstado(Estado.editado);
 				
 				String ids = request.getParameter("idsDestinatarios");
 				String[] idsArray = ids.split(",");
@@ -186,12 +184,6 @@ public class CrearAnuncioServlet extends HttpServlet {
 			
 
 			
-			/*try {
-				manager.getAnuncioDAO().insertar(a);
-			} catch (DAOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
 			
 			response.sendRedirect("Tablon");
 			
@@ -206,8 +198,7 @@ public class CrearAnuncioServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String titulo=request.getParameter("titulo");
-		String contenido=request.getParameter("contenido");
+
 		
 		
 		if(request.getParameter("titulo") == null || request.getParameter("contenido") == null || request.getParameter("titulo").equals("") || request.getParameter("contenido").equals(""))

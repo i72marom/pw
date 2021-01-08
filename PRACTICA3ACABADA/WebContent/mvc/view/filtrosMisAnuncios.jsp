@@ -10,7 +10,7 @@
 				<br/>
 				<br/>
 				<label class="checkbox-class">Titulo
-				  <input type="radio" name="by" value="titulo" id="CHtitulo">
+				  <input type="radio" name="by" value="titulo" id="CHtitulo" checked>
 				  <span class="checkmark-radio"></span>
 				</label>
 				<label class="checkbox-class">Fecha
@@ -53,7 +53,7 @@
 					<span class="checkmark-radio"></span>
 				</label>
 				<label class="checkbox-class">Fecha
-					<input type="radio" name="order_by" value="fecha" id="OBfecha">
+					<input type="radio" name="order_by" value="fecha" id="OBfecha" checked>
 					<span class="checkmark-radio"></span>
 				</label>
 			</form>

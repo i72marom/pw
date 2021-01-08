@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,12 +44,8 @@ public class ConfigurarCuenta extends HttpServlet {
 		
 		
 		
-		
-		if(request.getParameter("tipo") == null)
-		{
-			request.getRequestDispatcher("/mvc/view/configurarCuenta.jsp").forward(request, response);
-		}
-		else
+		//SI PASAN EL PARAMETRO TIPO QUIERE DECIR QUE SE DEBEN REALIZAR ACCIONES ( ACTUALIZAR DATOS DEL USUARIO )
+		if(request.getParameter("tipo") != null)
 		{
 			HttpSession objSession = request.getSession(false);
 			Contacto userLogged = (Contacto) objSession.getAttribute("usuarioLogeado");
@@ -63,6 +59,7 @@ public class ConfigurarCuenta extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+			//MODIFICA INFORMACIÓN PERSONAL
 			if(request.getParameter("tipo").equals("informacionpersonal"))
 			{
 				
@@ -87,6 +84,8 @@ public class ConfigurarCuenta extends HttpServlet {
 				
 				
 			}
+			
+			//MODIFCA LOS TAGS/INTERESES 
 			if(request.getParameter("tipo").equals("intereses"))
 			{
 				String[] temas = request.getParameterValues("tema");
@@ -101,6 +100,8 @@ public class ConfigurarCuenta extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
+			
+			//MODIFICA LA PASSWORD DEL USER
 			if(request.getParameter("tipo").equals("passwords"))
 			{
 				String passActual = request.getParameter("password");
@@ -132,10 +133,13 @@ public class ConfigurarCuenta extends HttpServlet {
 			}
 			
 			
-			request.getRequestDispatcher("/mvc/view/configurarCuenta.jsp").forward(request, response);
+			
 			
 		}
 		
+		request.getRequestDispatcher("/mvc/view/configurarCuenta.jsp").forward(request, response);
+	
 	}
+	
 
 }

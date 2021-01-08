@@ -7,18 +7,18 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 import es.uco.pw.business.anuncio.Anuncio;
 import es.uco.pw.business.anuncio.AnuncioFlash;
-import es.uco.pw.business.anuncio.AnuncioGeneral;
+
 import es.uco.pw.business.anuncio.AnuncioTematico;
-import es.uco.pw.business.anuncio.Generador;
-import es.uco.pw.business.contacto.Contacto;
+
+
 import es.uco.pw.business.tipos.Tipo;
 import es.uco.pw.data.dao.DAOException;
 import es.uco.pw.data.mysqldao.MySQLDAOManager;

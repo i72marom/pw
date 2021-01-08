@@ -1,3 +1,5 @@
+
+//CAMBIA EL BORDE DEL BOTON CUANDO SE PULSE PARA FACILITAR LA VISUALIZACIÓN DEL APARTADO ACTUAL
 function cambiarEstiloBoton(actual)
 {
 	
@@ -20,6 +22,7 @@ function cambiarEstiloBoton(actual)
 }
 
 
+//CAMBIA LOS DISPLAYS DE LOS DIVS PARA CAMBIAR LAS SECCIONES DE LA PÁGINA AL PULSAR EL BOTON DE CADA SECCION
 function conf(aux) {
 	
 	
@@ -75,6 +78,7 @@ function conf(aux) {
 	}
 }
 
+//VALIDA LOS CAMPOS NOMBRE Y APELLIDOS 
 function checkBotonInfo()
 {
 	let nombre = document.getElementById("nombre");
@@ -91,6 +95,8 @@ function checkBotonInfo()
 	}
 	
 }
+
+//VALIDA LOS CAMPOS PASS ACTUAL, NUEVA PASS Y NUEVA PASS REPETIDA
 function checkBotonPass()
 {
 	let passActual = document.getElementById("password");
@@ -106,32 +112,3 @@ function checkBotonPass()
 		alert("Has introducido los datos mal");
 	}
 }
-
-/*function conf(aux) {
-	var info      = document.getElementById('info');
-	var contacto  = document.getElementById('contacto');
-	var tema      = document.getElementById('tema');
-	var seguridad = document.getElementById('seguridad');
-
-	if (aux == info) {
-		info.style.display      = "block";
-		contacto.style.display  = "none";
-		tema.style.display      = "none";
-		seguridad.style.display = "none";
-	} else if (aux == contacto) {
-		info.style.display      = "none";
-		contacto.style.display  = "block";
-		tema.style.display      = "none";
-		seguridad.style.display = "none";
-	} else if (aux == tema) {
-		info.style.display      = "none";
-		contacto.style.display  = "none";
-		tema.style.display      = "block";
-		seguridad.style.display = "none";
-	} else {
-		info.style.display      = "none";
-		contacto.style.display  = "none";
-		tema.style.display      = "none";
-		seguridad.style.display = "block";
-	} else
-}*/
